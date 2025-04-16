@@ -1,12 +1,14 @@
-import React, {Component} from 'react';
-import {Text, View} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
 
-export default class App extends Component {
-  render() {
-    return (
-      <View>
-        <Text> d </Text>
-      </View>
-    );
-  }
-}
+import StackNav from './src/navigation/StackNav';
+import Mines from './src/screens/Mines';
+
+const App = () => {
+  return (
+    <NavigationContainer>
+      <StackNav />
+    </NavigationContainer>
+  );
+};
+
+export default App;
