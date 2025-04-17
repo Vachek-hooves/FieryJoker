@@ -1,6 +1,5 @@
 import {useNavigation} from '@react-navigation/native';
 import {
-  Button,
   Image,
   ImageBackground,
   StyleSheet,
@@ -9,10 +8,11 @@ import {
   View,
 } from 'react-native';
 import MainTitle from '../components/MainTitle';
-import CloseButton from '../components/CloseButton';
+import {useStore} from '../store/context';
 
 const StartGame = () => {
   const navigation = useNavigation();
+  const {coinsQuantity} = useStore();
 
   return (
     <ImageBackground
@@ -20,31 +20,23 @@ const StartGame = () => {
       source={require('../../src/assets/images/startGameBg.png')}>
       <MainTitle title={'Home'} />
 
-      <View
-        style={{
-          flexDirection: 'row',
-          marginHorizontal: 20,
-          justifyContent: 'space-between',
-        }}>
-        <TouchableOpacity
-          style={{alignItems: 'center', justifyContent: 'center'}}>
+      <View style={styles.buttonsContainer}>
+        <View style={{alignItems: 'center', justifyContent: 'center'}}>
           <Image source={require('../assets/images/mediumBtn.png')} />
-
           <View
             style={{
               backgroundColor: '#9E1838',
-              width: 60,
-              height: 25,
+              width: 65,
+              height: 29,
               position: 'absolute',
-            }}>
-            <Text style={{textAlign: 'center'}}>0</Text>
-          </View>
+            }}></View>
           <Image
             source={require('../assets/images/starIcon.png')}
             style={{position: 'absolute', left: 90, top: -10}}
           />
-        </TouchableOpacity>
-        <TouchableOpacity
+          <Text style={styles.coinsQuantityText}>{coinsQuantity}</Text>
+        </View>
+        <View
           style={{
             alignItems: 'center',
             justifyContent: 'center',
@@ -55,57 +47,40 @@ const StartGame = () => {
             style={{
               backgroundColor: '#9E1838',
               width: 60,
-              height: 25,
+              height: 29,
               position: 'absolute',
             }}>
-            <Text style={{textAlign: 'center'}}>2/2</Text>
+            <Text style={styles.livesText}>2/2</Text>
           </View>
           <Image
             source={require('../assets/images/heartIcon.png')}
             style={{position: 'absolute', left: 90, top: -10}}
           />
-        </TouchableOpacity>
+        </View>
       </View>
       <View style={{marginHorizontal: 20}}>
-        <View
-          style={{
-            backgroundColor: '#3A0000',
-            borderRadius: 12,
-            padding: 10,
-            flexDirection: 'row',
-            marginBottom: 10,
-            marginTop: 60,
-          }}>
+        <View style={styles.startGameContainer}>
           <Image source={require('../assets/images/slice.png')} />
           <View
             style={{
+              paddingLeft: 10,
               justifyContent: 'space-between',
-              padding: 10,
             }}>
-            <Text style={{fontFamily: 'Grenze-Italic', color: '#fff'}}>
-              SAPPER
-            </Text>
+            <Text style={styles.startGameTitle}>Sapper</Text>
             <TouchableOpacity onPress={() => navigation.navigate('SapperGame')}>
               <Image source={require('../assets/images/playBtn.png')} />
             </TouchableOpacity>
           </View>
         </View>
-        <View
-          style={{
-            backgroundColor: '#3A0000',
-            borderRadius: 12,
-            padding: 10,
-            flexDirection: 'row',
-          }}>
+        <View style={styles.startGameContainer}>
           <Image source={require('../assets/images/slice.png')} />
           <View
             style={{
               justifyContent: 'space-between',
-              padding: 10,
+              paddingLeft: 10,
             }}>
-            <Text style={{fontFamily: 'Grenze-Italic', color: '#fff'}}>
-              SAPPER
-            </Text>
+            <Text style={styles.startGameTitle}>Escape Quest</Text>
+
             <TouchableOpacity>
               <Image source={require('../assets/images/playBtn.png')} />
             </TouchableOpacity>
@@ -120,6 +95,47 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 40,
+  },
+  startGameTitle: {
+    fontFamily: 'Grenze-ExtraBoldItalic',
+    color: '#fff',
+    textShadowColor: 'rgba(0, 0, 0, 0.5)',
+    textShadowOffset: {width: 4, height: 1},
+    textShadowRadius: 1,
+    fontSize: 40,
+  },
+  startGameContainer: {
+    backgroundColor: '#3A0000',
+    borderRadius: 12,
+    padding: 10,
+    flexDirection: 'row',
+    marginBottom: 10,
+  },
+  coinsQuantityText: {
+    fontFamily: 'Grenze-ExtraBold',
+    fontSize: 35,
+    color: '#fff',
+    position: 'absolute',
+    bottom: 11,
+    textShadowColor: 'rgba(0, 0, 0, 0.5)',
+    textShadowOffset: {width: 3, height: 0},
+    textShadowRadius: 1,
+  },
+  buttonsContainer: {
+    flexDirection: 'row',
+    marginHorizontal: 20,
+    justifyContent: 'space-between',
+    marginBottom: 60,
+  },
+  livesText: {
+    fontFamily: 'Grenze-ExtraBold',
+    fontSize: 35,
+    color: '#fff',
+    position: 'absolute',
+    bottom: -5,
+    textShadowColor: 'rgba(0, 0, 0, 0.5)',
+    textShadowOffset: {width: 3, height: 0},
+    textShadowRadius: 1,
   },
 });
 

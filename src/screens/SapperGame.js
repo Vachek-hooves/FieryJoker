@@ -11,9 +11,11 @@ import MainTitle from '../components/MainTitle';
 import CloseButton from '../components/CloseButton';
 
 import Board from '../components/Board';
+import {useStore} from '../store/context';
 
 const SapperGame = () => {
   const navigation = useNavigation();
+  const {coinsQuantity} = useStore();
 
   return (
     <ImageBackground
@@ -21,7 +23,7 @@ const SapperGame = () => {
       source={require('../../src/assets/images/back.png')}>
       <View style={styles.titleContainer}>
         <MainTitle title={'Sapper'} />
-        <CloseButton />
+        <CloseButton navigateTo={'Home'} />
       </View>
       <View
         style={{
@@ -29,28 +31,24 @@ const SapperGame = () => {
           marginHorizontal: 20,
           justifyContent: 'space-between',
         }}>
-        <TouchableOpacity
-          style={{alignItems: 'center', justifyContent: 'center'}}>
+        <View style={{alignItems: 'center', justifyContent: 'center'}}>
           <Image source={require('../assets/images/buttonSmall.png')} />
-          <View style={styles.wrap}>
-            <Text style={{textAlign: 'center'}}>0</Text>
-          </View>
+          <View style={styles.wrap}></View>
           <Image
             source={require('../assets/images/starIcon.png')}
             style={styles.image}
           />
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={{alignItems: 'center', justifyContent: 'center'}}>
+          <Text style={styles.coinsQuantityText}>{coinsQuantity}</Text>
+        </View>
+        <View style={{alignItems: 'center', justifyContent: 'center'}}>
           <Image source={require('../assets/images/buttonSmall.png')} />
-          <View style={styles.wrap}>
-            <Text style={{textAlign: 'center'}}>2/2</Text>
-          </View>
+          <View style={styles.wrap}></View>
           <Image
             source={require('../assets/images/heartIcon.png')}
             style={styles.image}
           />
-        </TouchableOpacity>
+          <Text style={styles.coinsQuantityText}>2/2</Text>
+        </View>
       </View>
       <Board />
     </ImageBackground>
@@ -80,6 +78,16 @@ const styles = StyleSheet.create({
     bottom: 2,
     width: 46,
     height: 46,
+  },
+  coinsQuantityText: {
+    fontFamily: 'Grenze-ExtraBold',
+    fontSize: 25,
+    color: '#fff',
+    position: 'absolute',
+    bottom: 8,
+    textShadowColor: 'rgba(0, 0, 0, 0.5)',
+    textShadowOffset: {width: 4, height: 1},
+    textShadowRadius: 1,
   },
 });
 

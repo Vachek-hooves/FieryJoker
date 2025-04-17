@@ -11,7 +11,25 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		F86A76A5D0C9444A96AEC5E4 /* Grenze-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8BF62F75D44B46D8ADE85E78 /* Grenze-Italic.ttf */; };
+		DF2E19F87B514957A81F17FF /* Grenze-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B0278D3E10FB43F192691290 /* Grenze-Italic.ttf */; };
+		D841EEACE5364E3E9973F167 /* Grenze-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 237591CBE2CA4D7E933D037D /* Grenze-Black.ttf */; };
+		638A45143F384EB19C2436F2 /* Grenze-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F1FD2F8D3DF449189BE0467 /* Grenze-BlackItalic.ttf */; };
+		03E375F16F8E4BE7A4BD9F07 /* Grenze-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63EDD52C3D014CD3A1E14EF6 /* Grenze-Bold.ttf */; };
+		44F2293CABBB41F1A035C7DE /* Grenze-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8877E2EB5664F25A1DBD5B1 /* Grenze-BoldItalic.ttf */; };
+		ABCA14A2A28A4BB09684AE40 /* Grenze-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDC10836287D4E6E81B41E56 /* Grenze-ExtraBold.ttf */; };
+		11A7FA0DC41846D89218BE40 /* Grenze-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E62AE76092E456584995262 /* Grenze-ExtraBoldItalic.ttf */; };
+		962FEF6897C943F686E461B0 /* Grenze-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FBB09F9A97244425B714E474 /* Grenze-ExtraLight.ttf */; };
+		4755530842324C41A2557CFE /* Grenze-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAD91A06C5A44E4F866DAB24 /* Grenze-ExtraLightItalic.ttf */; };
+		D88341813DFD4747971A6FFE /* Grenze-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3438EA4563A0446FAC080C29 /* Grenze-Light.ttf */; };
+		3B657C1A394749AD80C0E5D4 /* Grenze-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9C54FCB9A77D426E8A73B264 /* Grenze-LightItalic.ttf */; };
+		01BB9B66A7BD4099BDB14BF4 /* Grenze-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5125BD40DB6844E88D43164E /* Grenze-Medium.ttf */; };
+		3CFAD5CE090E428E9BEB24D9 /* Grenze-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 46E3C8E26BC844DF957CDB04 /* Grenze-MediumItalic.ttf */; };
+		9395073D891C4FE48823AAF2 /* Grenze-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B3604AB6381A4628A7563C0E /* Grenze-Regular.ttf */; };
+		333CA60684A84459B0D1EA04 /* Grenze-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F6941DACEB94EDBBFDE0D1F /* Grenze-SemiBold.ttf */; };
+		E533ECC33EB44963BB8CF9EF /* Grenze-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 56E38F536D294B7D820E1FCA /* Grenze-SemiBoldItalic.ttf */; };
+		7853F54E6DD845D7A3A4BD87 /* Grenze-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71FB63D32FF9425B9CF78B4E /* Grenze-Thin.ttf */; };
+		C2073AEC4CA540C09B6D9C9E /* Grenze-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69932480DCB148939966341D /* Grenze-ThinItalic.ttf */; };
+		E88978389F7549B29A2E3544 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = A1F6B052FD0647178DF7B14B /* OFL.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +54,25 @@
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = AwesomeProject/AppDelegate.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = AwesomeProject/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		8BF62F75D44B46D8ADE85E78 /* Grenze-Italic.ttf */ = {isa = PBXFileReference; name = "Grenze-Italic.ttf"; path = "../src/assets/fonts/Grenze-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B0278D3E10FB43F192691290 /* Grenze-Italic.ttf */ = {isa = PBXFileReference; name = "Grenze-Italic.ttf"; path = "../assets/fonts/Grenze-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		237591CBE2CA4D7E933D037D /* Grenze-Black.ttf */ = {isa = PBXFileReference; name = "Grenze-Black.ttf"; path = "../assets/fonts/Grenze-Black.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		8F1FD2F8D3DF449189BE0467 /* Grenze-BlackItalic.ttf */ = {isa = PBXFileReference; name = "Grenze-BlackItalic.ttf"; path = "../assets/fonts/Grenze-BlackItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		63EDD52C3D014CD3A1E14EF6 /* Grenze-Bold.ttf */ = {isa = PBXFileReference; name = "Grenze-Bold.ttf"; path = "../assets/fonts/Grenze-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A8877E2EB5664F25A1DBD5B1 /* Grenze-BoldItalic.ttf */ = {isa = PBXFileReference; name = "Grenze-BoldItalic.ttf"; path = "../assets/fonts/Grenze-BoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		DDC10836287D4E6E81B41E56 /* Grenze-ExtraBold.ttf */ = {isa = PBXFileReference; name = "Grenze-ExtraBold.ttf"; path = "../assets/fonts/Grenze-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		6E62AE76092E456584995262 /* Grenze-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; name = "Grenze-ExtraBoldItalic.ttf"; path = "../assets/fonts/Grenze-ExtraBoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		FBB09F9A97244425B714E474 /* Grenze-ExtraLight.ttf */ = {isa = PBXFileReference; name = "Grenze-ExtraLight.ttf"; path = "../assets/fonts/Grenze-ExtraLight.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BAD91A06C5A44E4F866DAB24 /* Grenze-ExtraLightItalic.ttf */ = {isa = PBXFileReference; name = "Grenze-ExtraLightItalic.ttf"; path = "../assets/fonts/Grenze-ExtraLightItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3438EA4563A0446FAC080C29 /* Grenze-Light.ttf */ = {isa = PBXFileReference; name = "Grenze-Light.ttf"; path = "../assets/fonts/Grenze-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9C54FCB9A77D426E8A73B264 /* Grenze-LightItalic.ttf */ = {isa = PBXFileReference; name = "Grenze-LightItalic.ttf"; path = "../assets/fonts/Grenze-LightItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5125BD40DB6844E88D43164E /* Grenze-Medium.ttf */ = {isa = PBXFileReference; name = "Grenze-Medium.ttf"; path = "../assets/fonts/Grenze-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		46E3C8E26BC844DF957CDB04 /* Grenze-MediumItalic.ttf */ = {isa = PBXFileReference; name = "Grenze-MediumItalic.ttf"; path = "../assets/fonts/Grenze-MediumItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B3604AB6381A4628A7563C0E /* Grenze-Regular.ttf */ = {isa = PBXFileReference; name = "Grenze-Regular.ttf"; path = "../assets/fonts/Grenze-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4F6941DACEB94EDBBFDE0D1F /* Grenze-SemiBold.ttf */ = {isa = PBXFileReference; name = "Grenze-SemiBold.ttf"; path = "../assets/fonts/Grenze-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		56E38F536D294B7D820E1FCA /* Grenze-SemiBoldItalic.ttf */ = {isa = PBXFileReference; name = "Grenze-SemiBoldItalic.ttf"; path = "../assets/fonts/Grenze-SemiBoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		71FB63D32FF9425B9CF78B4E /* Grenze-Thin.ttf */ = {isa = PBXFileReference; name = "Grenze-Thin.ttf"; path = "../assets/fonts/Grenze-Thin.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		69932480DCB148939966341D /* Grenze-ThinItalic.ttf */ = {isa = PBXFileReference; name = "Grenze-ThinItalic.ttf"; path = "../assets/fonts/Grenze-ThinItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A1F6B052FD0647178DF7B14B /* OFL.txt */ = {isa = PBXFileReference; name = "OFL.txt"; path = "../assets/fonts/OFL.txt"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +158,25 @@
 		9F19435AE3E0432F8E315D61 /* Resources */ = {
 			isa = "PBXGroup";
 			children = (
-				8BF62F75D44B46D8ADE85E78 /* Grenze-Italic.ttf */,
+				B0278D3E10FB43F192691290 /* Grenze-Italic.ttf */,
+				237591CBE2CA4D7E933D037D /* Grenze-Black.ttf */,
+				8F1FD2F8D3DF449189BE0467 /* Grenze-BlackItalic.ttf */,
+				63EDD52C3D014CD3A1E14EF6 /* Grenze-Bold.ttf */,
+				A8877E2EB5664F25A1DBD5B1 /* Grenze-BoldItalic.ttf */,
+				DDC10836287D4E6E81B41E56 /* Grenze-ExtraBold.ttf */,
+				6E62AE76092E456584995262 /* Grenze-ExtraBoldItalic.ttf */,
+				FBB09F9A97244425B714E474 /* Grenze-ExtraLight.ttf */,
+				BAD91A06C5A44E4F866DAB24 /* Grenze-ExtraLightItalic.ttf */,
+				3438EA4563A0446FAC080C29 /* Grenze-Light.ttf */,
+				9C54FCB9A77D426E8A73B264 /* Grenze-LightItalic.ttf */,
+				5125BD40DB6844E88D43164E /* Grenze-Medium.ttf */,
+				46E3C8E26BC844DF957CDB04 /* Grenze-MediumItalic.ttf */,
+				B3604AB6381A4628A7563C0E /* Grenze-Regular.ttf */,
+				4F6941DACEB94EDBBFDE0D1F /* Grenze-SemiBold.ttf */,
+				56E38F536D294B7D820E1FCA /* Grenze-SemiBoldItalic.ttf */,
+				71FB63D32FF9425B9CF78B4E /* Grenze-Thin.ttf */,
+				69932480DCB148939966341D /* Grenze-ThinItalic.ttf */,
+				A1F6B052FD0647178DF7B14B /* OFL.txt */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -197,7 +251,25 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				F86A76A5D0C9444A96AEC5E4 /* Grenze-Italic.ttf in Resources */,
+				DF2E19F87B514957A81F17FF /* Grenze-Italic.ttf in Resources */,
+				D841EEACE5364E3E9973F167 /* Grenze-Black.ttf in Resources */,
+				638A45143F384EB19C2436F2 /* Grenze-BlackItalic.ttf in Resources */,
+				03E375F16F8E4BE7A4BD9F07 /* Grenze-Bold.ttf in Resources */,
+				44F2293CABBB41F1A035C7DE /* Grenze-BoldItalic.ttf in Resources */,
+				ABCA14A2A28A4BB09684AE40 /* Grenze-ExtraBold.ttf in Resources */,
+				11A7FA0DC41846D89218BE40 /* Grenze-ExtraBoldItalic.ttf in Resources */,
+				962FEF6897C943F686E461B0 /* Grenze-ExtraLight.ttf in Resources */,
+				4755530842324C41A2557CFE /* Grenze-ExtraLightItalic.ttf in Resources */,
+				D88341813DFD4747971A6FFE /* Grenze-Light.ttf in Resources */,
+				3B657C1A394749AD80C0E5D4 /* Grenze-LightItalic.ttf in Resources */,
+				01BB9B66A7BD4099BDB14BF4 /* Grenze-Medium.ttf in Resources */,
+				3CFAD5CE090E428E9BEB24D9 /* Grenze-MediumItalic.ttf in Resources */,
+				9395073D891C4FE48823AAF2 /* Grenze-Regular.ttf in Resources */,
+				333CA60684A84459B0D1EA04 /* Grenze-SemiBold.ttf in Resources */,
+				E533ECC33EB44963BB8CF9EF /* Grenze-SemiBoldItalic.ttf in Resources */,
+				7853F54E6DD845D7A3A4BD87 /* Grenze-Thin.ttf in Resources */,
+				C2073AEC4CA540C09B6D9C9E /* Grenze-ThinItalic.ttf in Resources */,
+				E88978389F7549B29A2E3544 /* OFL.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

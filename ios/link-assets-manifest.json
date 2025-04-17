@@ -2,8 +2,80 @@
   "migIndex": 1,
   "data": [
     {
-      "path": "src/assets/fonts/Grenze-Italic.ttf",
+      "path": "assets/fonts/Grenze-Black.ttf",
+      "sha1": "6266bffa0e3abc437d000e194e894c77ff7f4b4a"
+    },
+    {
+      "path": "assets/fonts/Grenze-BlackItalic.ttf",
+      "sha1": "dbfc3a5a99c7cf2cb02a9caee25c2c5c41aa615c"
+    },
+    {
+      "path": "assets/fonts/Grenze-Bold.ttf",
+      "sha1": "1399f1727c26d75a3825a1b489c1676939b241be"
+    },
+    {
+      "path": "assets/fonts/Grenze-BoldItalic.ttf",
+      "sha1": "8e45a0a8e1354be9f25989ebbfc7ad6d019e4acb"
+    },
+    {
+      "path": "assets/fonts/Grenze-ExtraBold.ttf",
+      "sha1": "14e476af6e62d389a641357d1bddc60b960e82bf"
+    },
+    {
+      "path": "assets/fonts/Grenze-ExtraBoldItalic.ttf",
+      "sha1": "f95e6e0a039af3cdbcd003bd19e922d1b4fe67a8"
+    },
+    {
+      "path": "assets/fonts/Grenze-ExtraLight.ttf",
+      "sha1": "ba8d59d875a46ef649c34460c3f61815f7c56dfb"
+    },
+    {
+      "path": "assets/fonts/Grenze-ExtraLightItalic.ttf",
+      "sha1": "d982cf90d6b55757587b716e70f7bce2b7d785d1"
+    },
+    {
+      "path": "assets/fonts/Grenze-Italic.ttf",
       "sha1": "db22b1ca8f74e1e37891824d9a51e74239e731d6"
+    },
+    {
+      "path": "assets/fonts/Grenze-Light.ttf",
+      "sha1": "f34e82f152e669cdab9a9ab19757f38a0f6ae3fe"
+    },
+    {
+      "path": "assets/fonts/Grenze-LightItalic.ttf",
+      "sha1": "4b37bb08252c8e7b1d33193168b8ca1ee12852f2"
+    },
+    {
+      "path": "assets/fonts/Grenze-Medium.ttf",
+      "sha1": "ca285abbaaebfea587c3ec79ca1e737b6eedc192"
+    },
+    {
+      "path": "assets/fonts/Grenze-MediumItalic.ttf",
+      "sha1": "a1453e3965517ef199aede498b588581f7cba183"
+    },
+    {
+      "path": "assets/fonts/Grenze-Regular.ttf",
+      "sha1": "f5647c3feea1d1c0cee10b1ba5a41e928678f806"
+    },
+    {
+      "path": "assets/fonts/Grenze-SemiBold.ttf",
+      "sha1": "6ab98a9b8eb8808037619a6b8fc1b89ddd94285d"
+    },
+    {
+      "path": "assets/fonts/Grenze-SemiBoldItalic.ttf",
+      "sha1": "dda88bacb8af552969a456d0fccd871433ffa182"
+    },
+    {
+      "path": "assets/fonts/Grenze-Thin.ttf",
+      "sha1": "e8cb3911072fd15da6208dd577ba1631645819c9"
+    },
+    {
+      "path": "assets/fonts/Grenze-ThinItalic.ttf",
+      "sha1": "3871d76e6fe8c000292fb1dbb05082cd6231677e"
+    },
+    {
+      "path": "assets/fonts/OFL.txt",
+      "sha1": "d2897f698a728f6e32a28f7d2bc9b824dfbb4850"
     }
   ]
 }

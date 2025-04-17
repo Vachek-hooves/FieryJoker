@@ -5,10 +5,11 @@ import Cell from './Cell';
 import CustomModal from './customModal';
 import {useNavigation} from '@react-navigation/native';
 import {useEffect, useReducer, useState} from 'react';
+import {useStore} from '../store/context';
 
 const BOARD_SIZE = 5;
 const BOARD_SIZE_VERTICAL = 6;
-const BOMBS_NUM = 4;
+const BOMBS_NUM = 1;
 
 export default function Board() {
   const [gameState, dispatch] = useReducer(gameReducer, {
@@ -19,12 +20,23 @@ export default function Board() {
   });
   const [isVisible, setIsVisible] = useState(true);
   const [openCells, setOpenCells] = useState(0);
+  const {setCoinsQuantity, coinsQuantity} = useStore();
 
   const navigation = useNavigation();
 
   function handlePress(row, col) {
     dispatch({type: 'HANDLE_CELL', row, col});
   }
+
+  useEffect(() => {
+    if (openCells === 29) {
+      if (coinsQuantity > 1000) {
+        return;
+      } else {
+        setCoinsQuantity(prev => prev + 150);
+      }
+    }
+  }, [openCells]);
 
   useEffect(() => {
     function numOfOpenCells() {
@@ -81,7 +93,7 @@ export default function Board() {
           </View>
         </CustomModal>
       )}
-      {openCells === 26 && (
+      {openCells === 29 && (
         <CustomModal visible={isVisible}>
           <View>
             <View style={{alignItems: 'center', justifyContent: 'center'}}>
@@ -89,11 +101,14 @@ export default function Board() {
               <Text style={styles.title}>Passed</Text>
             </View>
 
-            <View style={{alignItems: 'center', justifyContent: 'center'}}>
-              <Image source={require('../assets/images/buttonSmall.png')} />
-              <View style={styles.wrap}>
-                <Text style={{textAlign: 'center'}}>0</Text>
-              </View>
+            <View
+              style={{
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginBottom: 24,
+              }}>
+              <Image source={require('../../assets/images/smallBtn150.png')} />
+
               <Image
                 source={require('../assets/images/starIcon.png')}
                 style={styles.image}

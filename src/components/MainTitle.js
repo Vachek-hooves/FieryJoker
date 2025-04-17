@@ -13,7 +13,8 @@ const MainTitle = ({title}) => {
     <View style={styles.container}>
       <Image
         style={styles.image}
-        source={require('../../src/assets/images/board.png')}></Image>
+        source={require('../../src/assets/images/board.png')}
+      />
       <Text style={styles.text}>{title}</Text>
     </View>
   );
@@ -22,17 +23,19 @@ const MainTitle = ({title}) => {
 const styles = StyleSheet.create({
   container: {alignItems: 'center'},
   image: {
-    height: 118,
-    width: 210,
+    // height: 118,
+    // width: 210,
     // resizeMode: 'contain',
   },
   text: {
     position: 'absolute',
-    fontWeight: '800',
-    fontFamily: 'Grenze-Italic',
+    fontFamily: 'Grenze-ExtraBoldItalic',
     fontSize: 40,
     color: '#FFFFFF',
-    top: 25,
+    top: 20,
+    textShadowColor: 'rgba(0, 0, 0, 0.5)',
+    textShadowOffset: {width: 4, height: 1},
+    textShadowRadius: 1,
   },
 });
 

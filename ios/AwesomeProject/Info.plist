@@ -50,6 +50,23 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Grenze-Italic.ttf</string>
+		<string>Grenze-Black.ttf</string>
+		<string>Grenze-BlackItalic.ttf</string>
+		<string>Grenze-Bold.ttf</string>
+		<string>Grenze-BoldItalic.ttf</string>
+		<string>Grenze-ExtraBold.ttf</string>
+		<string>Grenze-ExtraBoldItalic.ttf</string>
+		<string>Grenze-ExtraLight.ttf</string>
+		<string>Grenze-ExtraLightItalic.ttf</string>
+		<string>Grenze-Light.ttf</string>
+		<string>Grenze-LightItalic.ttf</string>
+		<string>Grenze-Medium.ttf</string>
+		<string>Grenze-MediumItalic.ttf</string>
+		<string>Grenze-Regular.ttf</string>
+		<string>Grenze-SemiBold.ttf</string>
+		<string>Grenze-SemiBoldItalic.ttf</string>
+		<string>Grenze-Thin.ttf</string>
+		<string>Grenze-ThinItalic.ttf</string>
 	</array>
 </dict>
 </plist>

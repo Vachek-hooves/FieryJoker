@@ -9,10 +9,11 @@ import {
 } from 'react-native';
 import MainTitle from '../components/MainTitle';
 import CloseButton from '../components/CloseButton';
-import {useState} from 'react';
+import {useStore} from '../store/context';
 
 const Home = () => {
   const navigation = useNavigation();
+  const {coinsQuantity} = useStore();
 
   return (
     <ImageBackground
@@ -36,15 +37,7 @@ const Home = () => {
         }}>
         <View style={{alignItems: 'center', justifyContent: 'center'}}>
           <Image source={require('../assets/images/buttonSmall.png')} />
-          <View
-            style={{
-              backgroundColor: '#9E1838',
-              width: 50,
-              height: 21,
-              position: 'absolute',
-            }}>
-            <Text style={{textAlign: 'center'}}>0</Text>
-          </View>
+          <View style={styles.btnWrap}></View>
           <Image
             source={require('../assets/images/starIcon.png')}
             style={{
@@ -55,18 +48,11 @@ const Home = () => {
               height: 46,
             }}
           />
+          <Text style={styles.coinsQuantityText}>{coinsQuantity}</Text>
         </View>
         <View style={{alignItems: 'center', justifyContent: 'center'}}>
           <Image source={require('../assets/images/buttonSmall.png')} />
-          <View
-            style={{
-              backgroundColor: '#9E1838',
-              width: 50,
-              height: 21,
-              position: 'absolute',
-            }}>
-            <Text style={{textAlign: 'center'}}>2/2</Text>
-          </View>
+          <View style={styles.btnWrap}></View>
           <Image
             source={require('../assets/images/heartIcon.png')}
             style={{
@@ -77,6 +63,7 @@ const Home = () => {
               height: 46,
             }}
           />
+          <Text style={styles.coinsQuantityText}>2/3</Text>
         </View>
       </View>
       <View style={{justifyContent: 'center', alignItems: 'center'}}>
@@ -126,6 +113,23 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 40,
+  },
+  coinsQuantityText: {
+    fontFamily: 'Grenze-ExtraBold',
+    fontSize: 25,
+    color: '#fff',
+    position: 'absolute',
+    bottom: 8,
+    textShadowColor: 'rgba(0, 0, 0, 0.5)',
+    textShadowOffset: {width: 4, height: 1},
+    textShadowRadius: 1,
+  },
+  btnWrap: {
+    backgroundColor: '#9E1838',
+    width: 50,
+    height: 20,
+    position: 'absolute',
+    alignItems: 'center',
   },
 });
 

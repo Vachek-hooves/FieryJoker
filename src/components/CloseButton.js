@@ -1,8 +1,12 @@
+import {useNavigation} from '@react-navigation/native';
 import {Image, StyleSheet, TouchableOpacity} from 'react-native';
 
-const CloseButton = () => {
+const CloseButton = ({navigateTo}) => {
+  const navigation = useNavigation();
   return (
-    <TouchableOpacity style={styles.closeBtnContainer}>
+    <TouchableOpacity
+      style={styles.closeBtnContainer}
+      onPress={() => navigation.navigate(navigateTo)}>
       <Image source={require('../assets/images/close.png')} />
     </TouchableOpacity>
   );

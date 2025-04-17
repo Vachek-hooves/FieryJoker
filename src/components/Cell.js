@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {StyleSheet, Text, Image, TouchableOpacity} from 'react-native';
+import {useStore} from '../store/context';
 
 export default function Cell({
   row,
@@ -9,6 +10,31 @@ export default function Cell({
   value,
   handlePress,
 }) {
+  const {selectedCubFromShop} = useStore();
+
+  const shop = [
+    {
+      image: require('../../assets/images/cell0.png'),
+      price: '0',
+    },
+    {
+      image: require('../../assets/images/cub100.png'),
+      price: '100',
+    },
+    {
+      image: require('../../assets/images/cub500.png'),
+      price: '500',
+    },
+    {
+      image: require('../../assets/images/cub600.png'),
+      price: '600',
+    },
+    {
+      image: require('../../assets/images/cub750.png'),
+      price: '750',
+    },
+  ];
+
   return (
     <TouchableOpacity
       onPress={() => {
@@ -16,7 +42,10 @@ export default function Cell({
       }}
       style={[styles.container, !isFlipped && styles.isFlipped]}>
       {!isFlipped ? (
-        <Image source={require('../../assets/images/cell.png')} />
+        <Image
+          source={shop[selectedCubFromShop].image}
+          style={{width: 69, height: 75}}
+        />
       ) : (
         <Image source={require('../../assets/images/flippedCell.png')} />
       )}
