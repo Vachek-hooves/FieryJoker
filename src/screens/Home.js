@@ -2,7 +2,6 @@ import {useNavigation} from '@react-navigation/native';
 import {
   Image,
   ImageBackground,
-  Modal,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -11,11 +10,9 @@ import {
 import MainTitle from '../components/MainTitle';
 import CloseButton from '../components/CloseButton';
 import {useState} from 'react';
-import CustomModal from '../components/customModal';
 
 const Home = () => {
   const navigation = useNavigation();
-  const [isVisible, setIsVisible] = useState(true);
 
   return (
     <ImageBackground
@@ -37,8 +34,7 @@ const Home = () => {
           marginHorizontal: 20,
           justifyContent: 'space-between',
         }}>
-        <TouchableOpacity
-          style={{alignItems: 'center', justifyContent: 'center'}}>
+        <View style={{alignItems: 'center', justifyContent: 'center'}}>
           <Image source={require('../assets/images/buttonSmall.png')} />
           <View
             style={{
@@ -59,9 +55,8 @@ const Home = () => {
               height: 46,
             }}
           />
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={{alignItems: 'center', justifyContent: 'center'}}>
+        </View>
+        <View style={{alignItems: 'center', justifyContent: 'center'}}>
           <Image source={require('../assets/images/buttonSmall.png')} />
           <View
             style={{
@@ -82,7 +77,7 @@ const Home = () => {
               height: 46,
             }}
           />
-        </TouchableOpacity>
+        </View>
       </View>
       <View style={{justifyContent: 'center', alignItems: 'center'}}>
         <View style={{justifyContent: 'center'}}>
@@ -99,6 +94,7 @@ const Home = () => {
       </View>
       <View style={{marginTop: 30, marginHorizontal: 77}}>
         <TouchableOpacity
+          activeOpacity={0.7}
           style={{height: 80, marginBottom: 12}}
           onPress={() => navigation.navigate('StartGame')}>
           <Image
@@ -106,13 +102,16 @@ const Home = () => {
             style={{width: '100%'}}
           />
         </TouchableOpacity>
-        <TouchableOpacity style={{height: 80, marginBottom: 12}}>
+        <TouchableOpacity
+          activeOpacity={0.7}
+          style={{height: 80, marginBottom: 12}}
+          onPress={() => navigation.navigate('Shop')}>
           <Image
             source={require('../assets/images/shopBtn.png')}
             style={{width: '100%'}}
           />
         </TouchableOpacity>
-        <TouchableOpacity style={{height: 80}}>
+        <TouchableOpacity activeOpacity={0.7} style={{height: 80}}>
           <Image
             source={require('../assets/images/levelsBtn.png')}
             style={{width: '100%'}}

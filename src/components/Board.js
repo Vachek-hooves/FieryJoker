@@ -8,7 +8,7 @@ import {useEffect, useReducer, useState} from 'react';
 
 const BOARD_SIZE = 5;
 const BOARD_SIZE_VERTICAL = 6;
-const BOMBS_NUM = 2;
+const BOMBS_NUM = 4;
 
 export default function Board() {
   const [gameState, dispatch] = useReducer(gameReducer, {
@@ -81,7 +81,7 @@ export default function Board() {
           </View>
         </CustomModal>
       )}
-      {openCells === 28 && (
+      {openCells === 26 && (
         <CustomModal visible={isVisible}>
           <View>
             <View style={{alignItems: 'center', justifyContent: 'center'}}>
