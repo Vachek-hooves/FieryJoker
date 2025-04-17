@@ -15,9 +15,9 @@ const CustomModal = ({visible, children}) => {
         }}>
         <View
           style={{
-            width: '90%',
+            width: '95%',
             backgroundColor: '#000000',
-            paddingHorizontal: 30,
+            paddingHorizontal: 5,
             paddingVertical: 28,
             borderRadius: 24,
           }}>

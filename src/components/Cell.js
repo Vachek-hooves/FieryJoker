@@ -1,12 +1,5 @@
 import * as React from 'react';
-import {
-  StyleSheet,
-  View,
-  Text,
-  Pressable,
-  Image,
-  TouchableOpacity,
-} from 'react-native';
+import {StyleSheet, Text, Image, TouchableOpacity} from 'react-native';
 
 export default function Cell({
   row,
@@ -18,16 +11,15 @@ export default function Cell({
 }) {
   return (
     <TouchableOpacity
-      onPress={() => handlePress(row, col)}
+      onPress={() => {
+        handlePress(row, col);
+      }}
       style={[styles.container, !isFlipped && styles.isFlipped]}>
       {!isFlipped ? (
         <Image source={require('../../assets/images/cell.png')} />
       ) : (
         <Image source={require('../../assets/images/flippedCell.png')} />
       )}
-      {/* <Text style={styles.text}>
-        {isFlipped && (isBomb ? '🐷' : value > 0 && value)}
-      </Text> */}
 
       {isFlipped &&
         (isBomb ? (
@@ -53,35 +45,13 @@ export default function Cell({
             {value > 0 && value}
           </Text>
         ))}
-
-      {/* {isFlipped &&
-        (isBomb ? (
-          <Image source={require('../../assets/images/heartIcon.png')} />
-        ) : (
-          <Text>{value}</Text>
-        ))} */}
     </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    // width: 69,
-    // height: 75,
-    // marginBottom: 5,
-    // backgroundColor: 'red',
-    // borderWidth: 1,
-    // borderColor: 'gray',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  isFlipped: {
-    // backgroundColor: 'lightblue',
-  },
-  text: {
-    fontSize: 40,
-    fontWeight: '800',
-    color: '#0002F3',
-    position: 'absolute',
   },
 });

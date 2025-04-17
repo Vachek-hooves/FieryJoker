@@ -80,6 +80,7 @@ function flipAll(board) {
 }
 
 function numOfOpenCells(board) {
+  const newBoard = board.slice();
   let total = 0;
 
   for (let row = 0; row < newBoard.length; row++) {
@@ -89,5 +90,6 @@ function numOfOpenCells(board) {
       }
     }
   }
+  console.log('total', total);
   return total;
 }
