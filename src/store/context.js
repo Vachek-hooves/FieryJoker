@@ -8,7 +8,7 @@ export const useStore = () => {
 };
 
 export const StoreProvider = ({children}) => {
-  const [coinsQuantity, setCoinsQuantity] = useState(0);
+  const [coinsQuantity, setCoinsQuantity] = useState(1000);
   const [selectedCubFromShop, setSelectedCubFromShop] = useState(0);
 
   console.log('selectedCubFromShop', selectedCubFromShop);

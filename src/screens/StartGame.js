@@ -67,7 +67,9 @@ const StartGame = () => {
               justifyContent: 'space-between',
             }}>
             <Text style={styles.startGameTitle}>Sapper</Text>
-            <TouchableOpacity onPress={() => navigation.navigate('SapperGame')}>
+            <TouchableOpacity
+              activeOpacity={0.7}
+              onPress={() => navigation.navigate('SapperGame')}>
               <Image source={require('../assets/images/playBtn.png')} />
             </TouchableOpacity>
           </View>
@@ -81,7 +83,9 @@ const StartGame = () => {
             }}>
             <Text style={styles.startGameTitle}>Escape Quest</Text>
 
-            <TouchableOpacity>
+            <TouchableOpacity
+              activeOpacity={0.7}
+              onPress={() => navigation.navigate('QuestGame')}>
               <Image source={require('../assets/images/playBtn.png')} />
             </TouchableOpacity>
           </View>
