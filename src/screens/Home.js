@@ -13,7 +13,7 @@ import {useStore} from '../store/context';
 
 const Home = () => {
   const navigation = useNavigation();
-  const {coinsQuantity} = useStore();
+  const {coinsQuantity, health} = useStore();
 
   return (
     <ImageBackground
@@ -65,7 +65,7 @@ const Home = () => {
               height: 46,
             }}
           />
-          <Text style={styles.coinsQuantityText}>2/3</Text>
+          <Text style={styles.coinsQuantityText}>{health}/3</Text>
         </View>
       </View>
       <View style={{justifyContent: 'center', alignItems: 'center'}}>

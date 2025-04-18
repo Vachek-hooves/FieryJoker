@@ -1,9 +1,17 @@
 import {useNavigation} from '@react-navigation/native';
-import {Image, StyleSheet, Text, Dimensions, View} from 'react-native';
+import {
+  Image,
+  StyleSheet,
+  Text,
+  Dimensions,
+  View,
+  TouchableOpacity,
+} from 'react-native';
 import CloseButton from '../components/CloseButton';
 import {useStore} from '../store/context';
 import {PanGestureHandler} from 'react-native-gesture-handler';
 import {useState} from 'react';
+import CustomModal from '../components/customModal';
 
 const {width} = Dimensions.get('window');
 const GRID_SIZE = 6;
@@ -11,44 +19,66 @@ const BLOCK_SIZE = width / GRID_SIZE;
 
 const initialBlocks = [
   // Joker block
-  {id: 'key', x: 2, y: 2, width: 1.6, height: 1, isKey: true},
+  {id: 'key', x: 0, y: 3, width: 1.6, height: 1, isKey: true},
   // Other blocks
-  {id: 'block1', x: 3, y: 3, width: 1.6, height: 1},
-  {
-    id: 'block2',
-    x: 4,
-    y: 0,
-    width: 0.6,
-    height: 2.9,
-    position: 'vertical',
-    size: 'large',
-  },
+  {id: 'block1', x: 4, y: 3, width: 1.6, height: 1},
   {
     id: 'block3',
-    x: 3,
+    x: 4,
     y: 4,
     width: 0.6,
     height: 1.9,
     position: 'vertical',
   },
+  {
+    id: 'block2',
+    x: 3,
+    y: 2,
+    width: 0.6,
+    height: 2.9,
+    position: 'vertical',
+    size: 'large',
+  },
+
   {id: 'block4', x: 2, y: 0, width: 0.6, height: 1.9, position: 'vertical'},
-  {id: 'block5', x: 1, y: 4, width: 1.6, height: 1},
+  {id: 'block5', x: 0, y: 4, width: 1.6, height: 1},
 
   {
     id: 'block6',
-    x: 3,
-    y: 0,
+    x: 5,
+    y: 4,
     width: 0.6,
     height: 1.9,
     position: 'vertical',
   },
-  {id: 'block7', x: 4, y: 5, width: 1.6, height: 1},
+  {id: 'block7', x: 4, y: 2, width: 1.6, height: 1},
+  {id: 'block8', x: 3, y: 1, width: 1.6, height: 1},
+  {id: 'block9', x: 0, y: 5, width: 1.6, height: 1},
+  {id: 'block10', x: 0, y: 0, width: 1.6, height: 1},
+  {id: 'block11', x: 3, y: 0, width: 1.6, height: 1},
+  {
+    id: 'block12',
+    x: 2,
+    y: 2,
+    width: 0.6,
+    height: 2.9,
+    position: 'vertical',
+    size: 'large',
+  },
 ];
 
-const EscapeGame = () => {
+const Lvl15 = () => {
   const navigation = useNavigation();
-  const {coinsQuantity, health, lockedLevels, setLockedLevels} = useStore();
+  const {
+    coinsQuantity,
+    health,
+    setLockedLevels,
+    lockedLevels,
+    setCoinsQuantity,
+  } = useStore();
   const [blocks, setBlocks] = useState(initialBlocks);
+  const [openModal, setOpenModal] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
 
   const onDrag = (event, block) => {
     const {translationX, translationY} = event.nativeEvent;
@@ -107,9 +137,8 @@ const EscapeGame = () => {
     const keyBlock = blocks.find(b => b.isKey);
     if (keyBlock && keyBlock.x === GRID_SIZE - (keyBlock.width + 0.4)) {
       //   alert('You freed the Joker!');
-
       const unlockLevel = lockedLevels.map((level, idx) => {
-        if (idx === 0) {
+        if (idx === 14) {
           return {
             ...level,
             locked: false,
@@ -120,7 +149,7 @@ const EscapeGame = () => {
 
       setLockedLevels(unlockLevel);
 
-      navigation.navigate('Lvl2');
+      setOpenModal(true);
     }
   };
 
@@ -140,10 +169,7 @@ const EscapeGame = () => {
     <View style={styles.container}>
       <View style={styles.boardContainer}>
         <View style={{alignItems: 'center'}}>
-          <Image
-            style={styles.image}
-            source={require('../../assets/images/board.png')}
-          />
+          <Image source={require('../../assets/images/board.png')} />
           <Text style={styles.text}> Joker's Escape Quest</Text>
         </View>
         <CloseButton navigateTo={'Home'} />
@@ -162,7 +188,7 @@ const EscapeGame = () => {
           />
           <Text style={styles.coinsQuantityText}>{coinsQuantity}</Text>
         </View>
-        <Text style={styles.levelText}>Level 1</Text>
+        <Text style={styles.levelText}>Level 15</Text>
 
         <View style={{alignItems: 'center', justifyContent: 'center'}}>
           <Image source={require('../../assets/images/buttonSmall.png')} />
@@ -263,6 +289,61 @@ const EscapeGame = () => {
           </View>
         </View>
       </View>
+
+      {openModal && (
+        <CustomModal visible={isVisible}>
+          <View>
+            <View style={{alignItems: 'center', justifyContent: 'center'}}>
+              <Image source={require('../../assets/images/modalBoard.png')} />
+              <Text style={styles.title}>Game Over</Text>
+            </View>
+
+            <View
+              style={{
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginBottom: 24,
+              }}>
+              <Image source={require('../../assets/images/smallBtn150.png')} />
+
+              <Image
+                source={require('../../assets/images/starIcon.png')}
+                style={styles.image}
+              />
+            </View>
+
+            <View
+              style={{
+                flexDirection: 'row',
+                marginHorizontal: 50,
+                justifyContent: 'space-between',
+              }}>
+              <TouchableOpacity
+                activeOpacity={0.7}
+                onPress={() => {
+                  navigation.navigate('Home'),
+                    setIsVisible(false),
+                    setCoinsQuantity(prev => prev + 150);
+                }}>
+                <Image
+                  source={require('../../assets/images/modalHomeBtn.png')}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity
+                activeOpacity={0.7}
+                onPress={() => {
+                  navigation.navigate('StartGame'),
+                    setIsVisible(false),
+                    setCoinsQuantity(prev => prev + 150);
+                }}>
+                <Image
+                  source={require('../../assets/images/modalRestartBtn.png')}
+                />
+              </TouchableOpacity>
+            </View>
+          </View>
+        </CustomModal>
+      )}
     </View>
   );
 };
@@ -335,12 +416,24 @@ const styles = StyleSheet.create({
     textShadowOffset: {width: 4, height: 1},
     textShadowRadius: 1,
   },
-  board: {
-    // paddingLeft: 20,
-    // paddingRight: 10,
-  },
+
   row: {
     flexDirection: 'row',
+  },
+  title: {
+    position: 'absolute',
+    color: '#fff',
+    fontWeight: '800',
+    fontSize: 55,
+    fontStyle: 'italic',
+    top: 50,
+  },
+  image: {
+    position: 'absolute',
+    top: -5,
+    right: 130,
+    width: 46,
+    height: 46,
   },
   cell: {
     width: 68,
@@ -372,4 +465,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default EscapeGame;
+export default Lvl15;

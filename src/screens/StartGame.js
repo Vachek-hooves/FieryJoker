@@ -12,7 +12,7 @@ import {useStore} from '../store/context';
 
 const StartGame = () => {
   const navigation = useNavigation();
-  const {coinsQuantity} = useStore();
+  const {coinsQuantity, health} = useStore();
 
   return (
     <ImageBackground
@@ -50,7 +50,7 @@ const StartGame = () => {
               height: 29,
               position: 'absolute',
             }}>
-            <Text style={styles.livesText}>2/2</Text>
+            <Text style={styles.livesText}>{health}/3</Text>
           </View>
           <Image
             source={require('../../assets/images/heartIcon.png')}

@@ -11,18 +11,9 @@ const BLOCK_SIZE = width / GRID_SIZE;
 
 const initialBlocks = [
   // Joker block
-  {id: 'key', x: 2, y: 2, width: 1.6, height: 1, isKey: true},
+  {id: 'key', x: 0, y: 5, width: 1.6, height: 1, isKey: true},
   // Other blocks
   {id: 'block1', x: 3, y: 3, width: 1.6, height: 1},
-  {
-    id: 'block2',
-    x: 4,
-    y: 0,
-    width: 0.6,
-    height: 2.9,
-    position: 'vertical',
-    size: 'large',
-  },
   {
     id: 'block3',
     x: 3,
@@ -31,23 +22,34 @@ const initialBlocks = [
     height: 1.9,
     position: 'vertical',
   },
+  {
+    id: 'block2',
+    x: 3,
+    y: 0,
+    width: 0.6,
+    height: 2.9,
+    position: 'vertical',
+    size: 'large',
+  },
   {id: 'block4', x: 2, y: 0, width: 0.6, height: 1.9, position: 'vertical'},
   {id: 'block5', x: 1, y: 4, width: 1.6, height: 1},
 
   {
     id: 'block6',
-    x: 3,
-    y: 0,
+    x: 5,
+    y: 4,
     width: 0.6,
     height: 1.9,
     position: 'vertical',
   },
-  {id: 'block7', x: 4, y: 5, width: 1.6, height: 1},
+  {id: 'block7', x: 4, y: 2, width: 1.6, height: 1},
+  {id: 'block8', x: 4, y: 1, width: 1.6, height: 1},
+  {id: 'block9', x: 0, y: 2, width: 1.6, height: 1},
 ];
 
-const EscapeGame = () => {
+const Lvl7 = () => {
   const navigation = useNavigation();
-  const {coinsQuantity, health, lockedLevels, setLockedLevels} = useStore();
+  const {coinsQuantity, health, setLockedLevels, lockedLevels} = useStore();
   const [blocks, setBlocks] = useState(initialBlocks);
 
   const onDrag = (event, block) => {
@@ -107,9 +109,8 @@ const EscapeGame = () => {
     const keyBlock = blocks.find(b => b.isKey);
     if (keyBlock && keyBlock.x === GRID_SIZE - (keyBlock.width + 0.4)) {
       //   alert('You freed the Joker!');
-
       const unlockLevel = lockedLevels.map((level, idx) => {
-        if (idx === 0) {
+        if (idx === 6) {
           return {
             ...level,
             locked: false,
@@ -120,7 +121,7 @@ const EscapeGame = () => {
 
       setLockedLevels(unlockLevel);
 
-      navigation.navigate('Lvl2');
+      navigation.navigate('Lvl8');
     }
   };
 
@@ -162,7 +163,7 @@ const EscapeGame = () => {
           />
           <Text style={styles.coinsQuantityText}>{coinsQuantity}</Text>
         </View>
-        <Text style={styles.levelText}>Level 1</Text>
+        <Text style={styles.levelText}>Level 7</Text>
 
         <View style={{alignItems: 'center', justifyContent: 'center'}}>
           <Image source={require('../../assets/images/buttonSmall.png')} />
@@ -372,4 +373,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default EscapeGame;
+export default Lvl7;

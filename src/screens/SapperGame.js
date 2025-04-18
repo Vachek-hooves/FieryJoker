@@ -15,7 +15,7 @@ import {useStore} from '../store/context';
 
 const SapperGame = () => {
   const navigation = useNavigation();
-  const {coinsQuantity} = useStore();
+  const {coinsQuantity, health} = useStore();
 
   return (
     <ImageBackground
@@ -47,7 +47,7 @@ const SapperGame = () => {
             source={require('../../assets/images/heartIcon.png')}
             style={styles.image}
           />
-          <Text style={styles.coinsQuantityText}>2/2</Text>
+          <Text style={styles.coinsQuantityText}>{health}/3</Text>
         </View>
       </View>
       <Board />

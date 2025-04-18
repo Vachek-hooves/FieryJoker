@@ -2,70 +2,13 @@ import {Image, ImageBackground, StyleSheet, Text, View} from 'react-native';
 import MainTitle from '../components/MainTitle';
 import GoBackBtn from '../components/GoBackBtn';
 import LinearGradient from 'react-native-linear-gradient';
+import {useState} from 'react';
+import {useStore} from '../store/context';
 
 const Levels = () => {
-  const levels = [
-    {
-      title: 'Level 1',
-      locked: false,
-    },
-    {
-      title: 'Level 2',
-      locked: true,
-    },
-    {
-      title: 'Level 3',
-      locked: true,
-    },
-    {
-      title: 'Level 4',
-      locked: false,
-    },
-    {
-      title: 'Level 5',
-      locked: true,
-    },
-    {
-      title: 'Level 6',
-      locked: true,
-    },
-    {
-      title: 'Level 7',
-      locked: true,
-    },
-    {
-      title: 'Level 8',
-      locked: true,
-    },
-    {
-      title: 'Level 9',
-      locked: true,
-    },
-    {
-      title: 'Level 10',
-      locked: true,
-    },
-    {
-      title: 'Level 11',
-      locked: true,
-    },
-    {
-      title: 'Level 12',
-      locked: true,
-    },
-    {
-      title: 'Level 13',
-      locked: true,
-    },
-    {
-      title: 'Level 14',
-      locked: true,
-    },
-    {
-      title: 'Level 15',
-      locked: true,
-    },
-  ];
+  const {lockedLevels} = useStore();
+
+  console.log('lockedLevels', lockedLevels);
 
   return (
     <ImageBackground
@@ -83,7 +26,7 @@ const Levels = () => {
           justifyContent: 'space-between',
           gap: 40,
         }}>
-        {levels.map((level, idx) => (
+        {lockedLevels.map((level, idx) => (
           <View key={idx}>
             <LinearGradient
               colors={

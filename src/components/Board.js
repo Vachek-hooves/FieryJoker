@@ -9,7 +9,7 @@ import {useStore} from '../store/context';
 
 const BOARD_SIZE = 5;
 const BOARD_SIZE_VERTICAL = 6;
-const BOMBS_NUM = 1;
+const BOMBS_NUM = 4;
 
 export default function Board() {
   const [gameState, dispatch] = useReducer(gameReducer, {
@@ -20,7 +20,7 @@ export default function Board() {
   });
   const [isVisible, setIsVisible] = useState(true);
   const [openCells, setOpenCells] = useState(0);
-  const {setCoinsQuantity, coinsQuantity} = useStore();
+  const {setCoinsQuantity, coinsQuantity, setHealth, health} = useStore();
 
   const navigation = useNavigation();
 
@@ -75,6 +75,11 @@ export default function Board() {
                 activeOpacity={0.7}
                 onPress={() => {
                   navigation.navigate('Home'), setIsVisible(false);
+                  if (health === 0) {
+                    return;
+                  } else {
+                    setHealth(health - 1);
+                  }
                 }}>
                 <Image
                   source={require('../../assets/images/modalHomeBtn.png')}
@@ -84,6 +89,11 @@ export default function Board() {
                 activeOpacity={0.7}
                 onPress={() => {
                   navigation.navigate('StartGame'), setIsVisible(false);
+                  if (health === 0) {
+                    return;
+                  } else {
+                    setHealth(health - 1);
+                  }
                 }}>
                 <Image
                   source={require('../../assets/images/modalRestartBtn.png')}
@@ -93,7 +103,7 @@ export default function Board() {
           </View>
         </CustomModal>
       )}
-      {openCells === 29 && (
+      {openCells === 26 && (
         <CustomModal visible={isVisible}>
           <View>
             <View style={{alignItems: 'center', justifyContent: 'center'}}>

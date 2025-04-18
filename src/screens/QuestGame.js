@@ -13,7 +13,7 @@ import {useStore} from '../store/context';
 
 const QuestGame = () => {
   const navigation = useNavigation();
-  const {coinsQuantity} = useStore();
+  const {coinsQuantity, health} = useStore();
 
   return (
     <View style={styles.container}>
@@ -31,7 +31,7 @@ const QuestGame = () => {
           />
           <Text style={styles.text}> Joker's Escape Quest</Text>
         </View>
-        <CloseButton />
+        <CloseButton navigateTo={'Home'} />
       </View>
       <View
         style={{
@@ -75,7 +75,7 @@ const QuestGame = () => {
               height: 46,
             }}
           />
-          <Text style={styles.coinsQuantityText}>2/3</Text>
+          <Text style={styles.coinsQuantityText}>{health}/3</Text>
         </View>
       </View>
       <View style={{justifyContent: 'center', alignItems: 'center'}}>
