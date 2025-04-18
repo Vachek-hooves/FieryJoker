@@ -17,12 +17,12 @@ const StartGame = () => {
   return (
     <ImageBackground
       style={styles.container}
-      source={require('../../src/assets/images/startGameBg.png')}>
+      source={require('../../assets/images/startGameBg.png')}>
       <MainTitle title={'Home'} />
 
       <View style={styles.buttonsContainer}>
         <View style={{alignItems: 'center', justifyContent: 'center'}}>
-          <Image source={require('../assets/images/mediumBtn.png')} />
+          <Image source={require('../../assets/images/mediumBtn.png')} />
           <View
             style={{
               backgroundColor: '#9E1838',
@@ -31,7 +31,7 @@ const StartGame = () => {
               position: 'absolute',
             }}></View>
           <Image
-            source={require('../assets/images/starIcon.png')}
+            source={require('../../assets/images/starIcon.png')}
             style={{position: 'absolute', left: 90, top: -10}}
           />
           <Text style={styles.coinsQuantityText}>{coinsQuantity}</Text>
@@ -42,7 +42,7 @@ const StartGame = () => {
             justifyContent: 'center',
             marginRight: 20,
           }}>
-          <Image source={require('../assets/images/mediumBtn.png')} />
+          <Image source={require('../../assets/images/mediumBtn.png')} />
           <View
             style={{
               backgroundColor: '#9E1838',
@@ -53,14 +53,14 @@ const StartGame = () => {
             <Text style={styles.livesText}>2/2</Text>
           </View>
           <Image
-            source={require('../assets/images/heartIcon.png')}
+            source={require('../../assets/images/heartIcon.png')}
             style={{position: 'absolute', left: 90, top: -10}}
           />
         </View>
       </View>
       <View style={{marginHorizontal: 20}}>
         <View style={styles.startGameContainer}>
-          <Image source={require('../assets/images/slice.png')} />
+          <Image source={require('../../assets/images/slice.png')} />
           <View
             style={{
               paddingLeft: 10,
@@ -70,12 +70,12 @@ const StartGame = () => {
             <TouchableOpacity
               activeOpacity={0.7}
               onPress={() => navigation.navigate('SapperGame')}>
-              <Image source={require('../assets/images/playBtn.png')} />
+              <Image source={require('../../assets/images/playBtn.png')} />
             </TouchableOpacity>
           </View>
         </View>
         <View style={styles.startGameContainer}>
-          <Image source={require('../assets/images/slice.png')} />
+          <Image source={require('../../assets/images/slice.png')} />
           <View
             style={{
               justifyContent: 'space-between',
@@ -86,7 +86,7 @@ const StartGame = () => {
             <TouchableOpacity
               activeOpacity={0.7}
               onPress={() => navigation.navigate('QuestGame')}>
-              <Image source={require('../assets/images/playBtn.png')} />
+              <Image source={require('../../assets/images/playBtn.png')} />
             </TouchableOpacity>
           </View>
         </View>

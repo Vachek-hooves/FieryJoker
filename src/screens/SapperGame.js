@@ -20,7 +20,7 @@ const SapperGame = () => {
   return (
     <ImageBackground
       style={styles.container}
-      source={require('../../src/assets/images/back.png')}>
+      source={require('../../assets/images/back.png')}>
       <View style={styles.titleContainer}>
         <MainTitle title={'Sapper'} />
         <CloseButton navigateTo={'Home'} />
@@ -32,19 +32,19 @@ const SapperGame = () => {
           justifyContent: 'space-between',
         }}>
         <View style={{alignItems: 'center', justifyContent: 'center'}}>
-          <Image source={require('../assets/images/buttonSmall.png')} />
+          <Image source={require('../../assets/images/buttonSmall.png')} />
           <View style={styles.wrap}></View>
           <Image
-            source={require('../assets/images/starIcon.png')}
+            source={require('../../assets/images/starIcon.png')}
             style={styles.image}
           />
           <Text style={styles.coinsQuantityText}>{coinsQuantity}</Text>
         </View>
         <View style={{alignItems: 'center', justifyContent: 'center'}}>
-          <Image source={require('../assets/images/buttonSmall.png')} />
+          <Image source={require('../../assets/images/buttonSmall.png')} />
           <View style={styles.wrap}></View>
           <Image
-            source={require('../assets/images/heartIcon.png')}
+            source={require('../../assets/images/heartIcon.png')}
             style={styles.image}
           />
           <Text style={styles.coinsQuantityText}>2/2</Text>

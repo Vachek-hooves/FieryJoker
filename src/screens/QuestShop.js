@@ -67,10 +67,10 @@ const QuestShop = () => {
           justifyContent: 'center',
         }}>
         <View style={{alignItems: 'center', justifyContent: 'center'}}>
-          <Image source={require('../assets/images/buttonSmall.png')} />
+          <Image source={require('../../assets/images/buttonSmall.png')} />
           <View style={styles.btnWrap}></View>
           <Image
-            source={require('../assets/images/starIcon.png')}
+            source={require('../../assets/images/starIcon.png')}
             style={styles.starIcon}
           />
           <Text style={styles.coinsQuantityText}>{coinsQuantity}</Text>

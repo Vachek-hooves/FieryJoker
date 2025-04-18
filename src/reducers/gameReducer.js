@@ -79,17 +79,17 @@ function flipAll(board) {
   return newBoard;
 }
 
-function numOfOpenCells(board) {
-  const newBoard = board.slice();
-  let total = 0;
+// function numOfOpenCells(board) {
+//   const newBoard = board.slice();
+//   let total = 0;
 
-  for (let row = 0; row < newBoard.length; row++) {
-    for (let col = 0; col < newBoard[row].length; col++) {
-      if (board[row][col].isFlipped) {
-        total++;
-      }
-    }
-  }
-  console.log('total', total);
-  return total;
-}
+//   for (let row = 0; row < newBoard.length; row++) {
+//     for (let col = 0; col < newBoard[row].length; col++) {
+//       if (board[row][col].isFlipped) {
+//         total++;
+//       }
+//     }
+//   }
+//   console.log('total', total);
+//   return total;
+// }

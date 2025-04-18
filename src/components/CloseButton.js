@@ -7,7 +7,7 @@ const CloseButton = ({navigateTo}) => {
     <TouchableOpacity
       style={styles.closeBtnContainer}
       onPress={() => navigation.navigate(navigateTo)}>
-      <Image source={require('../assets/images/close.png')} />
+      <Image source={require('../../assets/images/close.png')} />
     </TouchableOpacity>
   );
 };
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderWidth: 0.7,
     borderColor: '#fff',
-    marginLeft: 20,
+    marginLeft: '8%',
   },
 });
 

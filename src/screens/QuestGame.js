@@ -27,7 +27,7 @@ const QuestGame = () => {
         <View style={{alignItems: 'center'}}>
           <Image
             style={styles.image}
-            source={require('../../src/assets/images/board.png')}
+            source={require('../../assets/images/board.png')}
           />
           <Text style={styles.text}> Joker's Escape Quest</Text>
         </View>
@@ -46,10 +46,10 @@ const QuestGame = () => {
             alignItems: 'center',
             justifyContent: 'center',
           }}>
-          <Image source={require('../assets/images/buttonSmall.png')} />
+          <Image source={require('../../assets/images/buttonSmall.png')} />
           <View style={styles.btnWrap}></View>
           <Image
-            source={require('../assets/images/starIcon.png')}
+            source={require('../../assets/images/starIcon.png')}
             style={{
               position: 'absolute',
               left: 65,
@@ -63,10 +63,10 @@ const QuestGame = () => {
         <Text style={styles.levelText}>Level 1</Text>
 
         <View style={{alignItems: 'center', justifyContent: 'center'}}>
-          <Image source={require('../assets/images/buttonSmall.png')} />
+          <Image source={require('../../assets/images/buttonSmall.png')} />
           <View style={styles.btnWrap}></View>
           <Image
-            source={require('../assets/images/heartIcon.png')}
+            source={require('../../assets/images/heartIcon.png')}
             style={{
               position: 'absolute',
               left: 65,
@@ -92,9 +92,9 @@ const QuestGame = () => {
         <TouchableOpacity
           activeOpacity={0.7}
           style={{height: 80, marginBottom: 12}}
-          onPress={() => navigation.navigate('StartGame')}>
+          onPress={() => navigation.navigate('EscapeGame')}>
           <Image
-            source={require('../assets/images/largeBtn.png')}
+            source={require('../../assets/images/largeBtn.png')}
             style={{width: '100%'}}
           />
         </TouchableOpacity>
@@ -103,7 +103,7 @@ const QuestGame = () => {
           style={{height: 80, marginBottom: 12}}
           onPress={() => navigation.navigate('QuestShop')}>
           <Image
-            source={require('../assets/images/shopBtn.png')}
+            source={require('../../assets/images/shopBtn.png')}
             style={{width: '100%'}}
           />
         </TouchableOpacity>
@@ -112,7 +112,7 @@ const QuestGame = () => {
           style={{height: 80}}
           onPress={() => navigation.navigate('Levels')}>
           <Image
-            source={require('../assets/images/levelsBtn.png')}
+            source={require('../../assets/images/levelsBtn.png')}
             style={{width: '100%'}}
           />
         </TouchableOpacity>

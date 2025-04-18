@@ -13,7 +13,7 @@ const MainTitle = ({title}) => {
     <View style={styles.container}>
       <Image
         style={styles.image}
-        source={require('../../src/assets/images/board.png')}
+        source={require('../../assets/images/board.png')}
       />
       <Text style={styles.text}>{title}</Text>
     </View>

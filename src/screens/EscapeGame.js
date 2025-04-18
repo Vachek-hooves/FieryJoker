@@ -1,0 +1,360 @@
+import {useNavigation} from '@react-navigation/native';
+import {Image, StyleSheet, Text, Dimensions, View} from 'react-native';
+import MainTitle from '../components/MainTitle';
+import CloseButton from '../components/CloseButton';
+import {useStore} from '../store/context';
+import {PanGestureHandler} from 'react-native-gesture-handler';
+import {useState} from 'react';
+
+const {width} = Dimensions.get('window');
+const GRID_SIZE = 6; // 6x6 grid
+const BLOCK_SIZE = width / GRID_SIZE;
+
+const initialBlocks = [
+  // Key block
+  {id: 'key', x: 2, y: 2, width: 1.6, height: 1, isKey: true},
+  // Other blocks
+  {id: 'block1', x: 3, y: 3, width: 1.6, height: 1},
+  {
+    id: 'block2',
+    x: 4,
+    y: 0,
+    width: 0.6,
+    height: 2.9,
+    position: 'vertical',
+    size: 'large',
+  },
+  {
+    id: 'block3',
+    x: 3,
+    y: 4,
+    width: 0.6,
+    height: 1.9,
+    position: 'vertical',
+  },
+  // {id: 'block4', x: 2, y: 0, width: 0.8, height: 1.6, position: 'vertical'},
+  // {id: 'block5', x: 1, y: 4, width: 1, height: 2},
+  // {id: 'block6', x: 0, y: 0, width: 2, height: 1},
+  // {id: 'block7', x: 4, y: 0, width: 1, height: 2},
+  // {id: 'block8', x: 3, y: 4, width: 1, height: 2},
+  // {id: 'block9', x: 2, y: 0, width: 1, height: 2},
+  // {id: 'block10', x: 1, y: 4, width: 1, height: 2},
+  // {id: 'block11', x: 1, y: 4, width: 1, height: 2},
+];
+
+const EscapeGame = () => {
+  const navigation = useNavigation();
+  const {coinsQuantity} = useStore();
+  const [blocks, setBlocks] = useState(initialBlocks);
+
+  const onDrag = (event, block) => {
+    const {translationX, translationY} = event.nativeEvent;
+
+    setBlocks(prevBlocks =>
+      prevBlocks.map(b => {
+        if (b.id === block.id) {
+          const newX = Math.round(
+            (block.x * BLOCK_SIZE + translationX) / BLOCK_SIZE,
+          );
+          const newY = Math.round(
+            (block.y * BLOCK_SIZE + translationY) / BLOCK_SIZE,
+          );
+
+          // Ensure the block stays within the grid and doesn’t overlap with others
+          const isValidMove = validateMove(block, newX, newY, prevBlocks);
+
+          if (isValidMove) {
+            return {
+              ...b,
+              x: newX,
+              y: newY,
+            };
+          }
+        }
+        return b;
+      }),
+    );
+  };
+
+  const validateMove = (block, newX, newY, blocks) => {
+    // Ensure the block stays within the grid
+    if (
+      newX < 0 ||
+      newY < 0 ||
+      newX + block.width > GRID_SIZE ||
+      newY + block.height > GRID_SIZE
+    ) {
+      return false;
+    }
+
+    // Ensure the block doesn’t overlap with others
+    for (const b of blocks) {
+      if (b.id !== block.id) {
+        if (
+          newX < b.x + b.width &&
+          newX + block.width > b.x &&
+          newY < b.y + b.height &&
+          newY + block.height > b.y
+        ) {
+          return false;
+        }
+      }
+    }
+    return true;
+  };
+
+  const checkWinCondition = () => {
+    const keyBlock = blocks.find(b => b.isKey);
+    if (keyBlock && keyBlock.x === GRID_SIZE - (keyBlock.width + 0.4)) {
+      alert('You freed the key! 🎉');
+    }
+  };
+
+  const renderCell = (rowIndex, colIndex) => (
+    <View key={`${rowIndex}-${colIndex}`} style={styles.cell} />
+  );
+
+  const renderRow = rowIndex => (
+    <View key={rowIndex} style={styles.row}>
+      {Array.from({length: 6}).map((_, colIndex) =>
+        renderCell(rowIndex, colIndex),
+      )}
+    </View>
+  );
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.boardContainer}>
+        <View style={{alignItems: 'center'}}>
+          <Image
+            style={styles.image}
+            source={require('../../assets/images/board.png')}
+          />
+          <Text style={styles.text}> Joker's Escape Quest</Text>
+        </View>
+        <CloseButton />
+      </View>
+      <View style={styles.btnsContainer}>
+        <View
+          style={{
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+          <Image source={require('../../assets/images/buttonSmall.png')} />
+          <View style={styles.btnWrap}></View>
+          <Image
+            source={require('../../assets/images/starIcon.png')}
+            style={styles.starIcon}
+          />
+          <Text style={styles.coinsQuantityText}>{coinsQuantity}</Text>
+        </View>
+        <Text style={styles.levelText}>Level 1</Text>
+
+        <View style={{alignItems: 'center', justifyContent: 'center'}}>
+          <Image source={require('../../assets/images/buttonSmall.png')} />
+          <View style={styles.btnWrap}></View>
+          <Image
+            source={require('../../assets/images/heartIcon.png')}
+            style={styles.starIcon}
+          />
+          <Text style={styles.coinsQuantityText}>2/3</Text>
+        </View>
+      </View>
+
+      <View style={styles.gameBoardContainer}>
+        <View style={{alignItems: 'center'}}>
+          <View style={styles.board}>
+            {Array.from({length: 6}).map((_, rowIndex) => renderRow(rowIndex))}
+
+            <View style={styles.containerBlocks}>
+              {blocks.map(block => (
+                <PanGestureHandler
+                  key={block.id}
+                  onGestureEvent={event => onDrag(event, block)}
+                  onEnded={checkWinCondition}>
+                  {block.size === 'large' ? (
+                    <View
+                      style={[
+                        styles.block,
+                        {
+                          left: block.x * BLOCK_SIZE,
+                          top: block.y * BLOCK_SIZE,
+                          width: block.width * BLOCK_SIZE,
+                          height: block.height * BLOCK_SIZE,
+                          //   backgroundColor: block.isKey ? '#e74c3c' : '#3498db',
+                        },
+                      ]}>
+                      {block.position === 'vertical' ? (
+                        <Image
+                          source={require('../../assets/images/largeBlue.png')}
+                          style={{
+                            transform: [{rotate: '90deg'}],
+                            height: 70,
+                            width: 195,
+                          }}
+                        />
+                      ) : block.isKey ? (
+                        <Image
+                          source={require('../../assets/images/jokerBlock.png')}
+                        />
+                      ) : (
+                        <Image
+                          source={require('../../assets/images/largeRed.png')}
+                        />
+                      )}
+                      {/* <Text style={styles.blockText}>{block.id}</Text> */}
+                    </View>
+                  ) : (
+                    <View
+                      style={[
+                        styles.block,
+                        {
+                          left: block.x * BLOCK_SIZE,
+                          top: block.y * BLOCK_SIZE,
+                          width: block.width * BLOCK_SIZE,
+                          height: block.height * BLOCK_SIZE,
+                          //   backgroundColor: block.isKey ? '#e74c3c' : '#3498db',
+                        },
+                      ]}>
+                      {block.position === 'vertical' ? (
+                        <Image
+                          source={require('../../assets/images/smallBlueBlock.png')}
+                          style={{
+                            transform: [{rotate: '90deg'}],
+                            height: 60,
+                            width: 135,
+                          }}
+                        />
+                      ) : block.isKey ? (
+                        <Image
+                          source={require('../../assets/images/jokerBlock.png')}
+                          style={styles.smallBlockImg}
+                        />
+                      ) : (
+                        <Image
+                          source={require('../../assets/images/smallRed.png')}
+                          style={styles.smallBlockImg}
+                        />
+                      )}
+
+                      {block.isKey && (
+                        <Image source={'../../assets/images/jokerBlock.png'} />
+                      )}
+                    </View>
+                  )}
+                </PanGestureHandler>
+              ))}
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: 40,
+    backgroundColor: '#920000',
+  },
+  boardContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    marginHorizontal: 20,
+  },
+  btnsContainer: {
+    flexDirection: 'row',
+    marginHorizontal: 20,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 30,
+  },
+  gameBoardContainer: {
+    width: '100%',
+    backgroundColor: '#000000',
+    paddingVertical: 70,
+    borderRadius: 13,
+  },
+  starIcon: {
+    position: 'absolute',
+    left: 65,
+    bottom: 2,
+    width: 46,
+    height: 46,
+  },
+
+  text: {
+    position: 'absolute',
+    fontFamily: 'Grenze-ExtraBoldItalic',
+    fontSize: 18,
+    color: '#FFFFFF',
+    top: 35,
+    textShadowColor: 'rgba(0, 0, 0, 0.5)',
+    textShadowOffset: {width: 4, height: 1},
+    textShadowRadius: 1,
+  },
+  coinsQuantityText: {
+    fontFamily: 'Grenze-ExtraBold',
+    fontSize: 25,
+    color: '#fff',
+    position: 'absolute',
+    bottom: 8,
+    textShadowColor: 'rgba(0, 0, 0, 0.5)',
+    textShadowOffset: {width: 4, height: 1},
+    textShadowRadius: 1,
+  },
+  btnWrap: {
+    backgroundColor: '#9E1838',
+    width: 50,
+    height: 20,
+    position: 'absolute',
+    alignItems: 'center',
+  },
+  levelText: {
+    fontFamily: 'Grenze-ExtraBoldItalic',
+    fontSize: 18,
+    color: '#FFFFFF',
+    textShadowColor: 'rgba(0, 0, 0, 0.5)',
+    textShadowOffset: {width: 4, height: 1},
+    textShadowRadius: 1,
+  },
+  board: {
+    // paddingLeft: 20,
+    // paddingRight: 10,
+  },
+  row: {
+    flexDirection: 'row',
+  },
+  cell: {
+    width: 68,
+    height: 68.5,
+    borderWidth: 0.5,
+    borderColor: '#fff',
+    opacity: 0.4,
+  },
+  containerBlocks: {
+    flex: 1,
+    backgroundColor: 'black',
+    position: 'absolute',
+    marginHorizontal: 12,
+  },
+  block: {
+    position: 'absolute',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 4,
+  },
+  blockText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  smallBlockImg: {
+    height: 69,
+    width: 135,
+  },
+});
+
+export default EscapeGame;

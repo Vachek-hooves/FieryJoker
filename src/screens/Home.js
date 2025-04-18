@@ -18,7 +18,7 @@ const Home = () => {
   return (
     <ImageBackground
       style={styles.container}
-      source={require('../../src/assets/images/back.png')}>
+      source={require('../../assets/images/back.png')}>
       <View
         style={{
           flexDirection: 'row',
@@ -27,7 +27,9 @@ const Home = () => {
           marginHorizontal: 20,
         }}>
         <MainTitle title={'Home'} />
-        <CloseButton />
+        <TouchableOpacity style={styles.closeBtnContainer} activeOpacity={0.8}>
+          <Image source={require('../../assets/images/close.png')} />
+        </TouchableOpacity>
       </View>
       <View
         style={{
@@ -36,10 +38,10 @@ const Home = () => {
           justifyContent: 'space-between',
         }}>
         <View style={{alignItems: 'center', justifyContent: 'center'}}>
-          <Image source={require('../assets/images/buttonSmall.png')} />
+          <Image source={require('../../assets/images/buttonSmall.png')} />
           <View style={styles.btnWrap}></View>
           <Image
-            source={require('../assets/images/starIcon.png')}
+            source={require('../../assets/images/starIcon.png')}
             style={{
               position: 'absolute',
               left: 65,
@@ -51,10 +53,10 @@ const Home = () => {
           <Text style={styles.coinsQuantityText}>{coinsQuantity}</Text>
         </View>
         <View style={{alignItems: 'center', justifyContent: 'center'}}>
-          <Image source={require('../assets/images/buttonSmall.png')} />
+          <Image source={require('../../assets/images/buttonSmall.png')} />
           <View style={styles.btnWrap}></View>
           <Image
-            source={require('../assets/images/heartIcon.png')}
+            source={require('../../assets/images/heartIcon.png')}
             style={{
               position: 'absolute',
               left: 65,
@@ -68,13 +70,13 @@ const Home = () => {
       </View>
       <View style={{justifyContent: 'center', alignItems: 'center'}}>
         <View style={{justifyContent: 'center'}}>
-          <Image source={require('../assets/images/boardBg.png')} />
+          <Image source={require('../../assets/images/boardBg.png')} />
           <Image
-            source={require('../assets/images/gift.png')}
+            source={require('../../assets/images/gift.png')}
             style={{position: 'absolute', bottom: -2}}
           />
           <Image
-            source={require('../assets/images/joker.png')}
+            source={require('../../assets/images/joker.png')}
             style={{position: 'absolute', left: -30, top: -60}}
           />
         </View>
@@ -85,7 +87,7 @@ const Home = () => {
           style={{height: 80, marginBottom: 12}}
           onPress={() => navigation.navigate('StartGame')}>
           <Image
-            source={require('../assets/images/largeBtn.png')}
+            source={require('../../assets/images/largeBtn.png')}
             style={{width: '100%'}}
           />
         </TouchableOpacity>
@@ -94,13 +96,16 @@ const Home = () => {
           style={{height: 80, marginBottom: 12}}
           onPress={() => navigation.navigate('Shop')}>
           <Image
-            source={require('../assets/images/shopBtn.png')}
+            source={require('../../assets/images/shopBtn.png')}
             style={{width: '100%'}}
           />
         </TouchableOpacity>
-        <TouchableOpacity activeOpacity={0.7} style={{height: 80}}>
+        <TouchableOpacity
+          activeOpacity={0.7}
+          style={{height: 80}}
+          onPress={() => navigation.navigate('Levels')}>
           <Image
-            source={require('../assets/images/levelsBtn.png')}
+            source={require('../../assets/images/levelsBtn.png')}
             style={{width: '100%'}}
           />
         </TouchableOpacity>
@@ -130,6 +135,17 @@ const styles = StyleSheet.create({
     height: 20,
     position: 'absolute',
     alignItems: 'center',
+  },
+  closeBtnContainer: {
+    width: 50,
+    height: 50,
+    backgroundColor: '#FF0000',
+    borderRadius: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 0.7,
+    borderColor: '#fff',
+    marginLeft: '8%',
   },
 });
 

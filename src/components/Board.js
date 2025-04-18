@@ -110,7 +110,7 @@ export default function Board() {
               <Image source={require('../../assets/images/smallBtn150.png')} />
 
               <Image
-                source={require('../assets/images/starIcon.png')}
+                source={require('../../assets/images/starIcon.png')}
                 style={styles.image}
               />
             </View>
