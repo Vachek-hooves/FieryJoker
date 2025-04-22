@@ -48,7 +48,15 @@ const Levels = () => {
                 {level.locked ? (
                   <Image source={require('../../assets/images/lock.png')} />
                 ) : (
-                  <Image source={require('../../assets/images/key.png')} />
+                  <View
+                    style={{
+                      position: 'relative',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                    }}>
+                    <Image source={require('../../assets/images/key.png')} />
+                    <Text style={styles.doneText}>DONE</Text>
+                  </View>
                 )}
               </LinearGradient>
               <View style={styles.levelTitleContainer}>
@@ -88,6 +96,11 @@ const styles = StyleSheet.create({
     textShadowColor: 'rgba(0, 0, 0, 0.5)',
     textShadowOffset: {width: 4, height: 1},
     textShadowRadius: 1,
+  },
+  doneText: {
+    color: 'green',
+    fontWeight: '600',
+    position: 'absolute',
   },
 });
 
