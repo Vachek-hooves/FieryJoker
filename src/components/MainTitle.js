@@ -21,11 +21,10 @@ const MainTitle = ({title}) => {
 };
 
 const styles = StyleSheet.create({
-  container: {alignItems: 'center'},
+  container: {alignItems: 'center', marginTop: 40},
   image: {
-    // height: 118,
-    // width: 210,
-    // resizeMode: 'contain',
+    height: 118,
+    width: 190,
   },
   text: {
     position: 'absolute',

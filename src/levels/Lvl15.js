@@ -10,8 +10,9 @@ import {
 import CloseButton from '../components/CloseButton';
 import {useStore} from '../store/context';
 import {PanGestureHandler} from 'react-native-gesture-handler';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import CustomModal from '../components/customModal';
+import Orientation from 'react-native-orientation-locker';
 
 const {width} = Dimensions.get('window');
 const GRID_SIZE = 6;
@@ -79,6 +80,14 @@ const Lvl15 = () => {
   const [blocks, setBlocks] = useState(initialBlocks);
   const [openModal, setOpenModal] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    Orientation.lockToPortrait();
+    return () => {
+      Orientation.unlockAllOrientations();
+    };
+  }, []);
+
 
   const onDrag = (event, block) => {
     const {translationX, translationY} = event.nativeEvent;

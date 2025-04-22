@@ -1,21 +1,22 @@
-import {useNavigation} from '@react-navigation/native';
-import {
-  Image,
-  ImageBackground,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {Image, ImageBackground, StyleSheet, Text, View} from 'react-native';
 import MainTitle from '../components/MainTitle';
 import CloseButton from '../components/CloseButton';
 
 import Board from '../components/Board';
 import {useStore} from '../store/context';
+import {useEffect} from 'react';
+import Orientation from 'react-native-orientation-locker';
 
 const SapperGame = () => {
-  const navigation = useNavigation();
   const {coinsQuantity, health} = useStore();
+
+  useEffect(() => {
+    Orientation.lockToPortrait();
+    return () => {
+      Orientation.unlockAllOrientations();
+    };
+  }, []);
+
 
   return (
     <ImageBackground

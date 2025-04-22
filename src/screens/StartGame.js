@@ -2,6 +2,7 @@ import {useNavigation} from '@react-navigation/native';
 import {
   Image,
   ImageBackground,
+  ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -18,79 +19,81 @@ const StartGame = () => {
     <ImageBackground
       style={styles.container}
       source={require('../../assets/images/startGameBg.png')}>
-      <MainTitle title={'Home'} />
+      <ScrollView>
+        <MainTitle title={'Home'} />
 
-      <View style={styles.buttonsContainer}>
-        <View style={{alignItems: 'center', justifyContent: 'center'}}>
-          <Image source={require('../../assets/images/mediumBtn.png')} />
-          <View
-            style={{
-              backgroundColor: '#9E1838',
-              width: 65,
-              height: 29,
-              position: 'absolute',
-            }}></View>
-          <Image
-            source={require('../../assets/images/starIcon.png')}
-            style={{position: 'absolute', left: 90, top: -10}}
-          />
-          <Text style={styles.coinsQuantityText}>{coinsQuantity}</Text>
-        </View>
-        <View
-          style={{
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginRight: 20,
-          }}>
-          <Image source={require('../../assets/images/mediumBtn.png')} />
-          <View
-            style={{
-              backgroundColor: '#9E1838',
-              width: 60,
-              height: 29,
-              position: 'absolute',
-            }}>
-            <Text style={styles.livesText}>{health}/3</Text>
+        <View style={styles.buttonsContainer}>
+          <View style={{alignItems: 'center', justifyContent: 'center'}}>
+            <Image source={require('../../assets/images/mediumBtn.png')} />
+            <View
+              style={{
+                backgroundColor: '#9E1838',
+                width: 65,
+                height: 29,
+                position: 'absolute',
+              }}></View>
+            <Image
+              source={require('../../assets/images/starIcon.png')}
+              style={{position: 'absolute', left: 90, top: -10}}
+            />
+            <Text style={styles.coinsQuantityText}>{coinsQuantity}</Text>
           </View>
-          <Image
-            source={require('../../assets/images/heartIcon.png')}
-            style={{position: 'absolute', left: 90, top: -10}}
-          />
-        </View>
-      </View>
-      <View style={{marginHorizontal: 20}}>
-        <View style={styles.startGameContainer}>
-          <Image source={require('../../assets/images/slice.png')} />
           <View
             style={{
-              paddingLeft: 10,
-              justifyContent: 'space-between',
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginRight: 20,
             }}>
-            <Text style={styles.startGameTitle}>Sapper</Text>
-            <TouchableOpacity
-              activeOpacity={0.7}
-              onPress={() => navigation.navigate('SapperGame')}>
-              <Image source={require('../../assets/images/playBtn.png')} />
-            </TouchableOpacity>
+            <Image source={require('../../assets/images/mediumBtn.png')} />
+            <View
+              style={{
+                backgroundColor: '#9E1838',
+                width: 60,
+                height: 29,
+                position: 'absolute',
+              }}>
+              <Text style={styles.livesText}>{health}/3</Text>
+            </View>
+            <Image
+              source={require('../../assets/images/heartIcon.png')}
+              style={{position: 'absolute', left: 90, top: -10}}
+            />
           </View>
         </View>
-        <View style={styles.startGameContainer}>
-          <Image source={require('../../assets/images/slice.png')} />
-          <View
-            style={{
-              justifyContent: 'space-between',
-              paddingLeft: 10,
-            }}>
-            <Text style={styles.startGameTitle}>Escape Quest</Text>
+        <View style={{marginHorizontal: 20}}>
+          <View style={styles.startGameContainer}>
+            <Image source={require('../../assets/images/slice.png')} />
+            <View
+              style={{
+                paddingLeft: 10,
+                justifyContent: 'space-between',
+              }}>
+              <Text style={styles.startGameTitle}>Sapper</Text>
+              <TouchableOpacity
+                activeOpacity={0.7}
+                onPress={() => navigation.navigate('SapperGame')}>
+                <Image source={require('../../assets/images/playBtn.png')} />
+              </TouchableOpacity>
+            </View>
+          </View>
+          <View style={styles.startGameContainer}>
+            <Image source={require('../../assets/images/slice.png')} />
+            <View
+              style={{
+                justifyContent: 'space-between',
+                paddingLeft: 10,
+              }}>
+              <Text style={styles.startGameTitle}>Escape Quest</Text>
 
-            <TouchableOpacity
-              activeOpacity={0.7}
-              onPress={() => navigation.navigate('QuestGame')}>
-              <Image source={require('../../assets/images/playBtn.png')} />
-            </TouchableOpacity>
+              <TouchableOpacity
+                activeOpacity={0.7}
+                onPress={() => navigation.navigate('QuestGame')}>
+                <Image source={require('../../assets/images/playBtn.png')} />
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
-      </View>
+      </ScrollView>
     </ImageBackground>
   );
 };
@@ -98,7 +101,6 @@ const StartGame = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 40,
   },
   startGameTitle: {
     fontFamily: 'Grenze-ExtraBoldItalic',

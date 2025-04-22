@@ -1,13 +1,13 @@
 import {useNavigation} from '@react-navigation/native';
 import {
   Image,
-  ImageBackground,
+  ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
 } from 'react-native';
-import MainTitle from '../components/MainTitle';
+
 import CloseButton from '../components/CloseButton';
 import {useStore} from '../store/context';
 
@@ -17,106 +17,110 @@ const QuestGame = () => {
 
   return (
     <View style={styles.container}>
-      <View
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'flex-end',
-          marginHorizontal: 20,
-        }}>
-        <View style={{alignItems: 'center'}}>
-          <Image
-            style={styles.image}
-            source={require('../../assets/images/board.png')}
-          />
-          <Text style={styles.text}> Joker's Escape Quest</Text>
-        </View>
-        <CloseButton navigateTo={'Home'} />
-      </View>
-      <View
-        style={{
-          flexDirection: 'row',
-          marginHorizontal: 20,
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          marginBottom: 30,
-        }}>
+      <ScrollView>
         <View
           style={{
+            flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'center',
+            marginHorizontal: 20,
+            marginTop: 40,
           }}>
-          <Image source={require('../../assets/images/buttonSmall.png')} />
-          <View style={styles.btnWrap}></View>
-          <Image
-            source={require('../../assets/images/starIcon.png')}
+          <View style={{alignItems: 'center'}}>
+            <Image
+              style={styles.image}
+              source={require('../../assets/images/board.png')}
+            />
+            <Text style={styles.text}> Joker's Escape Quest</Text>
+          </View>
+          <CloseButton navigateTo={'Home'} />
+        </View>
+        <View
+          style={{
+            flexDirection: 'row',
+            marginHorizontal: 20,
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            marginBottom: 30,
+          }}>
+          <View
             style={{
-              position: 'absolute',
-              left: 65,
-              bottom: 2,
-              width: 46,
-              height: 46,
-            }}
-          />
-          <Text style={styles.coinsQuantityText}>{coinsQuantity}</Text>
-        </View>
-        <Text style={styles.levelText}>Level 1</Text>
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}>
+            <Image source={require('../../assets/images/buttonSmall.png')} />
+            <View style={styles.btnWrap}></View>
+            <Image
+              source={require('../../assets/images/starIcon.png')}
+              style={{
+                position: 'absolute',
+                left: 65,
+                bottom: 2,
+                width: 46,
+                height: 46,
+              }}
+            />
+            <Text style={styles.coinsQuantityText}>{coinsQuantity}</Text>
+          </View>
+          <Text style={styles.levelText}>Level 1</Text>
 
-        <View style={{alignItems: 'center', justifyContent: 'center'}}>
-          <Image source={require('../../assets/images/buttonSmall.png')} />
-          <View style={styles.btnWrap}></View>
-          <Image
-            source={require('../../assets/images/heartIcon.png')}
-            style={{
-              position: 'absolute',
-              left: 65,
-              bottom: 2,
-              width: 46,
-              height: 46,
-            }}
-          />
-          <Text style={styles.coinsQuantityText}>{health}/3</Text>
+          <View style={{alignItems: 'center', justifyContent: 'center'}}>
+            <Image source={require('../../assets/images/buttonSmall.png')} />
+            <View style={styles.btnWrap}></View>
+            <Image
+              source={require('../../assets/images/heartIcon.png')}
+              style={{
+                position: 'absolute',
+                left: 65,
+                bottom: 2,
+                width: 46,
+                height: 46,
+              }}
+            />
+            <Text style={styles.coinsQuantityText}>{health}/3</Text>
+          </View>
         </View>
-      </View>
-      <View style={{justifyContent: 'center', alignItems: 'center'}}>
-        <View style={{justifyContent: 'center'}}>
-          <Image source={require('../../assets/images/questBg.png')} />
+        <View style={{justifyContent: 'center', alignItems: 'center'}}>
+          <View style={{justifyContent: 'center'}}>
+            <Image source={require('../../assets/images/questBg.png')} />
 
-          <Image
-            source={require('../../assets/images/questJoker.png')}
-            style={{position: 'absolute', left: -60, top: -90}}
-          />
+            <Image
+              source={require('../../assets/images/questJoker.png')}
+              style={{position: 'absolute', left: -60, top: -90}}
+            />
+          </View>
         </View>
-      </View>
-      <View style={{marginTop: 30, marginHorizontal: 77}}>
-        <TouchableOpacity
-          activeOpacity={0.7}
-          style={{height: 80, marginBottom: 12}}
-          onPress={() => navigation.navigate('EscapeGame')}>
-          <Image
-            source={require('../../assets/images/largeBtn.png')}
-            style={{width: '100%'}}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity
-          activeOpacity={0.7}
-          style={{height: 80, marginBottom: 12}}
-          onPress={() => navigation.navigate('QuestShop')}>
-          <Image
-            source={require('../../assets/images/shopBtn.png')}
-            style={{width: '100%'}}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity
-          activeOpacity={0.7}
-          style={{height: 80}}
-          onPress={() => navigation.navigate('Levels')}>
-          <Image
-            source={require('../../assets/images/levelsBtn.png')}
-            style={{width: '100%'}}
-          />
-        </TouchableOpacity>
-      </View>
+        <View
+          style={{marginTop: 30, marginHorizontal: 77, alignItems: 'center'}}>
+          <TouchableOpacity
+            activeOpacity={0.7}
+            style={{height: 80, marginBottom: 12}}
+            onPress={() => navigation.navigate('EscapeGame')}>
+            <Image
+              source={require('../../assets/images/largeBtn.png')}
+              style={{}}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            activeOpacity={0.7}
+            style={{height: 80, marginBottom: 12}}
+            onPress={() => navigation.navigate('QuestShop')}>
+            <Image
+              source={require('../../assets/images/shopBtn.png')}
+              style={{}}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            activeOpacity={0.7}
+            style={{height: 80, marginBottom: 30}}
+            onPress={() => navigation.navigate('Levels')}>
+            <Image
+              source={require('../../assets/images/levelsBtn.png')}
+              style={{}}
+            />
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
     </View>
   );
 };
@@ -124,7 +128,6 @@ const QuestGame = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 40,
     backgroundColor: '#920000',
   },
 

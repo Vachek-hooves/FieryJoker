@@ -3,7 +3,8 @@ import {Image, StyleSheet, Text, Dimensions, View} from 'react-native';
 import CloseButton from '../components/CloseButton';
 import {useStore} from '../store/context';
 import {PanGestureHandler} from 'react-native-gesture-handler';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
+import Orientation from 'react-native-orientation-locker';
 
 const {width} = Dimensions.get('window');
 const GRID_SIZE = 6;
@@ -50,6 +51,14 @@ const Lvl3 = () => {
   const navigation = useNavigation();
   const {coinsQuantity, health, setLockedLevels, lockedLevels} = useStore();
   const [blocks, setBlocks] = useState(initialBlocks);
+
+  useEffect(() => {
+    Orientation.lockToPortrait();
+    return () => {
+      Orientation.unlockAllOrientations();
+    };
+  }, []);
+
 
   const onDrag = (event, block) => {
     const {translationX, translationY} = event.nativeEvent;
