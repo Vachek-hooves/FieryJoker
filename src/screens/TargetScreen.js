@@ -23,7 +23,7 @@ const TargetScreen = ({route}) => {
     oneSignalUserId,
     idfv,
     applsFlyerUID,
-    timestamp_user_id,
+    jthrhg,
     isFirstVisit,
     timeStamp,
     naming,
@@ -102,14 +102,14 @@ const TargetScreen = ({route}) => {
 
   useEffect(() => {
     fetch(
-      `${INITIAL_URL}${URL_IDENTIFAIRE}?utretg=webview_open&timestamp_user_id=${timeStamp}`,
+      `${INITIAL_URL}${URL_IDENTIFAIRE}?utretg=webview_open&jthrhg=${timeStamp}`,
     );
   }, []);
 
   useEffect(() => {
     if (isFirstVisit && oneSignalPermissionStatus) {
       fetch(
-        `${INITIAL_URL}${URL_IDENTIFAIRE}?utretg=push_subscribe&timestamp_user_id=${timeStamp}`,
+        `${INITIAL_URL}${URL_IDENTIFAIRE}?utretg=push_subscribe&jthrhg=${timeStamp}`,
       );
     }
   }, [isFirstVisit, oneSignalPermissionStatus]);
@@ -120,7 +120,7 @@ const TargetScreen = ({route}) => {
         const storedTimeStamp = await AsyncStorage.getItem('timeStamp');
 
         fetch(
-          `${INITIAL_URL}${URL_IDENTIFAIRE}?utretg=uniq_visit&timestamp_user_id=${storedTimeStamp}`,
+          `${INITIAL_URL}${URL_IDENTIFAIRE}?utretg=uniq_visit&jthrhg=${storedTimeStamp}`,
         );
       }
     };
@@ -144,7 +144,7 @@ const TargetScreen = ({route}) => {
       params.append('idfv', idfv);
       params.append('uid', applsFlyerUID);
       params.append('customerUserId', idfv);
-      params.append('timestamp_user_id', timestamp_user_id);
+      params.append('jthrhg', jthrhg);
       params.append('media_source', currentMediaSource);
       params.append('af_siteid', currentAfSiteid);
       params.append('af_ad', currentAfAd);
@@ -204,7 +204,7 @@ const TargetScreen = ({route}) => {
       oneSignalUserId,
       idfv,
       applsFlyerUID,
-      timestamp_user_id,
+      jthrhg,
       isFirstVisit,
       localOpenWithPush,
     ],
@@ -406,7 +406,19 @@ const TargetScreen = ({route}) => {
         url.startsWith('https://oba.revolut.com/') ||
         url.startsWith('nl-abnamro-deeplink.psd2.consent://') ||
         url.startsWith('https://www.abnamro.nl/') ||
-        url.startsWith('nl-regiobank-sign://')
+        url.startsWith('nl-regiobank-sign://') ||
+        // Monzo
+        url.startsWith('monzo://') ||
+        url.startsWith('monzo://login') ||
+        url.startsWith('monzo://pay') ||
+        url.startsWith('monzo://account') ||
+        url.startsWith('monzo://oauth') ||
+        url.startsWith('https://monzo.com/') ||
+        url.startsWith('https://app.monzo.com/') ||
+        url.startsWith('https://api.monzo.com/') ||
+        url.startsWith('https://auth.monzo.com/') ||
+        url.startsWith('https://monzo.com/oauth2/') ||
+        url.startsWith('https://api.monzo.com/oauth2/')
         // url.startsWith('https://67crystalroll23.com/')
 
         // url.startsWith('https://www.payzoff.com/')
@@ -429,7 +441,7 @@ const TargetScreen = ({route}) => {
     };
 
     return (
-      // <View style={{flex: 1}}>
+      // <View style={{flex: 1, backgroundColor: 'black'}}>
       <WebView
         ref={webViewRef}
         source={{uri: webViewUrl}}
@@ -458,7 +470,18 @@ const TargetScreen = ({route}) => {
           'www.cibconline.cibc.com://',
           'secure.scotiabank.com',
           'rbc://*',
-          // ' https://app.revolut.com',
+          // Monzo
+          'monzo://',
+          'monzo://login',
+          'monzo://pay',
+          'monzo://account',
+          'monzo://oauth',
+          'https://monzo.com/',
+          'https://app.monzo.com/',
+          'https://api.monzo.com/',
+          'https://auth.monzo.com/',
+          'https://monzo.com/oauth2/',
+          'https://api.monzo.com/oauth2/',
         ]}
         onLoad={() => {
           // console.log('WebView fully loaded');
@@ -484,7 +507,7 @@ const TargetScreen = ({route}) => {
         }}
         onNavigationStateChange={navState => {
           // Updates webview's canGoBack state
-          //   console.log('navState', navState.url);
+          console.log('navState', navState.url);
           if (webViewRef.current) {
             // console.log('webViewRef.current', webViewRef.current);
             webViewRef.current.canGoBack = navState.canGoBack;

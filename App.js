@@ -543,9 +543,7 @@ const App = () => {
               }}
             />
           ) : (
-            <>
-              <StackNav />
-            </>
+            <Stack.Screen name="StackNav" component={StackNav} />
           )}
         </Stack.Navigator>
 
