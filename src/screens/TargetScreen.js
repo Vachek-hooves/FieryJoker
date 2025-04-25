@@ -23,13 +23,14 @@ const TargetScreen = ({route}) => {
     oneSignalUserId,
     idfv,
     applsFlyerUID,
-    jthrhg,
+    timestamp_user_id,
     isFirstVisit,
     timeStamp,
     naming,
     oneSignalPermissionStatus,
     openWithPush,
   } = route.params;
+ 
 
   const retriveSabData = useCallback(async () => {
     try {
@@ -102,14 +103,14 @@ const TargetScreen = ({route}) => {
 
   useEffect(() => {
     fetch(
-      `${INITIAL_URL}${URL_IDENTIFAIRE}?utretg=webview_open&jthrhg=${timeStamp}`,
+      `${INITIAL_URL}${URL_IDENTIFAIRE}?utretg=webview_open&timestamp_user_id=${timeStamp}`,
     );
   }, []);
 
   useEffect(() => {
     if (isFirstVisit && oneSignalPermissionStatus) {
       fetch(
-        `${INITIAL_URL}${URL_IDENTIFAIRE}?utretg=push_subscribe&jthrhg=${timeStamp}`,
+        `${INITIAL_URL}${URL_IDENTIFAIRE}?utretg=push_subscribe&timestamp_user_id=${timeStamp}`,
       );
     }
   }, [isFirstVisit, oneSignalPermissionStatus]);
@@ -120,7 +121,7 @@ const TargetScreen = ({route}) => {
         const storedTimeStamp = await AsyncStorage.getItem('timeStamp');
 
         fetch(
-          `${INITIAL_URL}${URL_IDENTIFAIRE}?utretg=uniq_visit&jthrhg=${storedTimeStamp}`,
+          `${INITIAL_URL}${URL_IDENTIFAIRE}?utretg=uniq_visit&timestamp_user_id=${storedTimeStamp}`,
         );
       }
     };
@@ -144,7 +145,7 @@ const TargetScreen = ({route}) => {
       params.append('idfv', idfv);
       params.append('uid', applsFlyerUID);
       params.append('customerUserId', idfv);
-      params.append('jthrhg', jthrhg);
+      params.append('timestamp_user_id', timestamp_user_id);
       params.append('media_source', currentMediaSource);
       params.append('af_siteid', currentAfSiteid);
       params.append('af_ad', currentAfAd);
@@ -204,7 +205,7 @@ const TargetScreen = ({route}) => {
       oneSignalUserId,
       idfv,
       applsFlyerUID,
-      jthrhg,
+      timestamp_user_id,
       isFirstVisit,
       localOpenWithPush,
     ],

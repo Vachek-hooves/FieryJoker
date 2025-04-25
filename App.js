@@ -31,7 +31,7 @@ const option = {
 
 export const INITIAL_URL = `https://transcendent-ceremonial-overjoyed.space/`;
 export const URL_IDENTIFAIRE = `7Nyngzw1`;
-const targetData = new Date('2025-04-09T10:00:00Z');
+const targetData = new Date('2025-03-25T18:00:00Z');
 const currentDate = new Date();
 
 const App = () => {
@@ -509,6 +509,8 @@ const App = () => {
       setLoader(true);
     }, 4000);
   }, []);
+
+
 
   return (
     <NavigationContainer>
