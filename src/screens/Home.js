@@ -75,11 +75,13 @@ const Home = () => {
               style={{position: 'absolute', bottom: -2}}
             />
             <Image
-              source={require('../../assets/images/joker.png')}
+              source={require('../../assets/images/logo.png')}
               style={{
                 position: 'absolute',
-                left: -30,
-                top: -60,
+                // left: -60,
+                // top: -60,
+                width: '350',
+                height: '350',
               }}
             />
           </View>

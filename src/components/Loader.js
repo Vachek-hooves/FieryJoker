@@ -12,7 +12,7 @@ const Loader = () => {
           alignItems: 'center',
           justifyContent: 'center',
         }}>
-        <Image source={require('../../assets/images/loader.png')} />
+        <Image source={require('../../assets/images/logo.png')} />
       </LinearGradient>
     </View>
   );

@@ -85,8 +85,8 @@ const QuestGame = () => {
             <Image source={require('../../assets/images/questBg.png')} />
 
             <Image
-              source={require('../../assets/images/questJoker.png')}
-              style={{position: 'absolute', left: -60, top: -90}}
+              source={require('../../assets/images/logo.png')}
+              style={{position: 'absolute', left: -70, top: -100}}
             />
           </View>
         </View>

@@ -53,8 +53,8 @@ export default function Cell({
       {isFlipped &&
         (isBomb ? (
           <Image
-            source={require('../../assets/images/bombJoker.png')}
-            style={{position: 'absolute'}}
+            source={require('../../assets/images/logo.png')}
+            style={{position: 'absolute', height: '60', width: '60'}}
           />
         ) : (
           <Text

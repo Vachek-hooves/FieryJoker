@@ -79,7 +79,7 @@ android {
 
     namespace "com.awesomeproject"
     defaultConfig {
-        applicationId "com.royal.joker.game"
+        applicationId "com.poke.to.be.sta"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

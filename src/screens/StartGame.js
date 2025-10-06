@@ -62,7 +62,10 @@ const StartGame = () => {
         </View>
         <View style={{marginHorizontal: 20}}>
           <View style={styles.startGameContainer}>
-            <Image source={require('../../assets/images/slice.png')} />
+            <Image
+              source={require('../../assets/images/logo.png')}
+              style={{height: '70', width: '70'}}
+            />
             <View
               style={{
                 paddingLeft: 10,
@@ -77,7 +80,10 @@ const StartGame = () => {
             </View>
           </View>
           <View style={styles.startGameContainer}>
-            <Image source={require('../../assets/images/slice.png')} />
+            <Image
+              source={require('../../assets/images/logo.png')}
+              style={{height: '70', width: '70'}}
+            />
             <View
               style={{
                 justifyContent: 'space-between',
